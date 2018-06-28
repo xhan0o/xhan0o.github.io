@@ -31,7 +31,7 @@
                 <h2 class="col">Objective</h2>
                 <div class="section-text col-right row">
                     <ul class="skills" style="width:90%">
-                        <li>Actively seeking a Full-time position in the field of Computer/Electrical Engineering. Available from June 2018.</li>
+                        <li>Actively seeking a Full-time position in the field of Computer Engineering. Available immediatly.</li>
                     </ul>
                 </div>
             </div>
@@ -40,11 +40,10 @@
                 <h2 class="col">Skills</h2>
                 <div class="section-text col-right row">
                     <ul class="skills" style="width:90%">
-                        <li><span style="font-style: italic;" class="emph">Languages </span>[Proficient]: Python, C. [Intermediate]: </span> VHDL, Verilog, js, Shell Scripts </li>
-                        <li><span style="font-style: italic;" class="emph">Hardware: </span> IoT chips / boards, Software Defined Radio, Arduiono / Raspberry Pi, Oscilloscopes, Function Generator, Signal Generator,FPGA, micro-controllers (86,64) and Sensors </li>
-                        <li><span style="font-style: italic;" class="emph">Skills: </span> MySql, Azure, AWS, GCP,Firmware Programming,Schematic Design,Board bring-up,RTOS,Embedded Software, Multi threading,  Network Design </li>
-                        <li><span style="font-style: italic;" class="emph">Tools: </span> MATLAB, Linux, WireShark, Keil-uVision,git, LaTeX, Xilinx ISE and EDK, TensorFlow, Keras, RTOS </li>
-                        <li><span style="font-style: italic;" class="emph">Protocols: </span> SPI, I2C, UART, USB, CAN, TCP/IP, UDP, MQTT, REST API. [Comms]: </span> BLE, WIFI, Cellular (2G/3G), Zigbee,802.15.4</li>
+                        <li><span style="font-style: italic;" class="emph">Languages </span>[Proficient]: C, MIPS, Assembly, Python [Intermediate]: </span> C++, Shell Script,Verilog / Sys Verilog, VHDL *Can create my own language by designing processor*</li>
+                        <li><span style="font-style: italic;" class="emph">Hardware: </span> IoT chips / boards, Software Defined Radio, Arduiono / Raspberry Pi, Oscilloscopes, Function Generator, Logic analyzer, Signal Generator,FPGA, micro-controllers (86,64) and Sensors </li>
+                        <li><span style="font-style: italic;" class="emph">Tools: </span> Cadence, Linux, Keil-uVision, SPICE, Proteus, FPGAs, git, LaTeX, synopsys, Xilinx ISE and EDK, MATLAB, Metasploit, NMAP</li>
+                        <li><span style="font-style: italic;" class="emph">Protocols: </span> SPI, I2C, UART, USB, CAN, TCP/IP,</li>
                     </ul>
                 </div>
             </div>
@@ -75,32 +74,120 @@
                 </div>
             </div>
 
-          <!--  <div class="section row">
+            <div class="section row">
                 <h2 class="col">Coursework</h2>
                 <div class="section-text col-right row">
-                    <ul class="skills" style="width:30%">
-                        <li>Computer Network Security</li>
-                        <li>Computer Network Architecture</li>
-                        <li>IoT and Smartcities - Vulnurabilities</li>
-                    </ul>
                     <ul class="skills" style="width:20%">
-                        <li>Mathematics</li>
+                        <li>Mathematics for EECE</li>
                         <li>Systems on Chip Design</li>
                         <li>Digital System Design</li>
                     </ul>
                     <ul class="skills" style="width:20%">
                         <li>Computer Design</li>
                         <li>CMOS & VLSI Design</li>
-                        <li>Network Theory</li>
+                        <li>VLSI Architecture</li>
                     </ul>
                     <ul class="skills" style="width:20%">
                         <li>Embedded Systems</li>
                         <li>Image Processing</li>
                         <li>Signal Processing</li>
                     </ul>
+                    <ul class="skills" style="width:30%">
+                        <li>Computer Network Security</li>
+                        <li>Computer Network Architecture</li>
+                        <li>IoT and Smartcities - Vulnurabilities</li>
+                    </ul>
                 </div>
-            </div> -->
+            </div>
 
+
+            <div class="section row">
+                <h2 class="col">Projects</h2>
+                <div class="section-text col-right">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Luggage Screening and Detection System, SoC [C,VHDL]</h3>
+                        </div>
+                    </div>
+                    <div class="row subsection">
+                        <div class="emph col">Binghamton, USA</div>
+                        <div class="col-right light">Fall 2016</div>
+                    </div>
+                    <ul class="desc">
+                        <li>Developed a screening system. Circuit simulation was done in Matlab to create virtual inputs as data sequence of luggage containing’s.</li>
+                        <li>Created a hardware in Xilinx as datacenter for storing data sequence for different types of materials. Developed a software in C which takes inputs from Matlab simulation and compare it with Xilinx’s hardware. </li>
+                        <li>This customized datacenter makes screening process 2.3 times faster than normal databases when there are more than 100,000 data sequence to compare with.</li>
+                    </ul>
+                </div>
+                <div class="section-text col-right">
+                    <div class="row">
+                        <div class="col">
+                            <h3>32-bit CPU, 8 Instructions, Design Constraints [Verilog]</h3>
+                        </div>
+                    </div>
+                    <div class="row subsection">
+                        <div class="emph col">Binghamton, USA</div>
+                        <div class="col-right light"> Fall, Spring 2016</div>
+                    </div>
+                    <ul class="desc">
+                        <li>Used Xilinx and Modelsim for hardware synthesis and programming in Verilog.</li>
+                        <li>Designed 32-bit Pipelined CPU with 8 instructions, optimized by design constraints using Verilog.</li>
+                        <li>Test bench and calculation for area, clock timing and power consumption at 500Mhz were done in ModelSim.</li>
+                        <li>Presented an idea of implementing Tomasulo algorithm for out-of-order execution.</li>
+                        <li>Implemented Tomasulo algorithm on higher level with python code simulations.</li>
+                    </ul>
+                </div>
+                <div class="section-text col-right">
+                    <div class="row">
+                        <div class="col">
+                            <h3>Network Intrusion Detection System [Python, Metasploit, NMAP]</h3>
+                        </div>
+                    </div>
+                    <div class="row subsection">
+                        <div class="emph col">Binghamton, USA</div>
+                        <div class="col-right light">Spring 2017</div>
+                    </div>
+                    <ul class="desc">
+                        <li>Implemented intrusion detection system to detect attacker,victim,time and type of attack. System was able to monitor real-time activity as well as historical data-logs.</li>
+                        <li>Other related project: DNS Activity Monitor and Ads Blocking Filter</li>
+                        <li>Technologies: Python, Bash, Networks, NMAP & Metasploit</li>
+                    </ul>
+                </div>
+
+                <div class="section-text col-right">
+                    <div class="row">
+                        <div class="col">
+                            <h3><span class="emph">Image Rotating FPGA , Hardware Software Co-Design [C, VHDL]</span></h3>
+                        </div>
+                    </div>
+                    <div class="row subsection">
+                        <div class="emph col">Binghamton, USA</div>
+                        <div class="col-right light">Spring 2017</div>
+                    </div>
+                    <ul class="desc">
+                        <li>Using Xilinx's fabricated virtual hardware which can rorate image 200% faster than usual.</li>
+                        <li>Used VHDL to develop effecient hardware level functional algorithm, implemented reading and roatation of an image pixels using C code</li>
+                        <li>This is common implemention for modern processors like ARM Cortex M-3,M-4,M-7</li>
+                    </ul>
+                </div>
+                <div class="section-text col-right">
+                    <div class="row">
+                        <div class="col">
+                            <h3><span class="emph">Neurocomputing - Termination Project [Python, Linux]</span></h3>
+                        </div>
+                    </div>
+                    <div class="row subsection">
+                        <div class="emph col">Binghamton, USA</div>
+                        <div class="col-right light">Spring 2018</div>
+                    </div>
+                    <ul class="desc">
+                        <li>Designing IoT Edge/fog node system to predict electricity usage using neural network algorithms for preventing blackouts and wastage of electricity.</li>
+                        <li>Technologies: Python, Raspberry Pi, Keras, Pecan Street dataport</li>
+                    </ul>
+                </div>
+
+
+            </div>
             <div class="section row">
                 <h2 class="col">Experience</h2>
                 <div class="section-text col-right">
@@ -115,11 +202,11 @@
                         <div class="col-right light">May 2017 - December 2017</div>
                     </div>
                     <ul class="desc">
-                        <li>Constructed 6 IoT prototypes based on Cellular and wifi connectivity. 2 of them deployed successfully.</li>
-                        <li>Wrote firmware for embedded hardware to read industrial meters with i2c,spi,lan protocols.</li>
-                        <li>Developed Linux based system​ for remote monitoring datalogger, implemented multithreading and fault-tolerance for reliability.</li>
-                        <li>Productionized full-scale JSON based RESTAPIs using Python and SQL, wrote python library to interact with cloud data servers(Azure).</li>
-                        <li>Proposed and executed strategy that brought down 30% of cloud platform bill.</li>
+                      <li>Designed 6 IoT prototypes based on Cellular and wifi connectivity. 2 of them deployed successfully.</li>
+                      <li>Wrote firmware for embedded hardware to convert industrial meters into cloud connected meters.</li>
+                      <li>Programmed u-controllers using C / C++ to read meteres with ADC, I2C, and SPI Protocols. </li>
+                      <li>Developed Linux based system​ for cloud connected data-logger, implemented multithreading and fault-tolerance for reliability.</li>
+                      <li>Productionized full-scale JSON based RESTAPIs using Python and SQL, wrote python library to interact with cloud data servers(Azure).</li>
                     </ul>
                 </div>
 
@@ -135,143 +222,12 @@
                         <div class="col-right light">March 2015 - July 2016</div>
                     </div>
                     <ul class="desc">
-                        <li>We built - “Aircraft flying in the sky (almost fuel less), Generating electricity, Supplying to grid” [100-150m Flight Altitude, 200W]</li>
-                        <li>Designed UAV's on-board sensor system and radios to provide real-time monitoring, data recording features at ground station.</li>
-                        <li>Edited the firmware of flight control board and added extra features for data logging.</li>
-                        <li>Researched on different types of sensor fusion-systems, micro-controllers and their procurement.</li>
-                        <li>Provided electronics - computer related support to mechenical,aero and fabrication teams. </li>
+                        <li>Part of the Core-team of Start-up who built 200W Airborne Wind Energy prototype (“Aircraft flying in the sky (almost fuel less), Generating electricity, Supplying to grid”)</li>
+                        <li>Converted mathematical model to MATLAB model for flue-less flight trajectory</li>
                     </ul>
                 </div>
-
-            <div class="section-text col-right">
-                <div class="row">
-                    <div class="col">
-                        <h3>Cross Shore Solutions</h3>
-                    </div>
-                    <div class="col-right light">Ahmedabad, India</div>
-                </div>
-                <div class="row subsection">
-                    <div class="emph col">IoT Research intern</div>
-                    <div class="col-right light">March 2015 - July 2016</div>
-                </div>
-                <ul class="desc">
-                    <li> Researched on BLE 4.0 hardware (HM 10) and demonstrated innovative solutions for in-door location and advertising using iBeacon.</li>
-                </ul>
             </div>
-          </div>
 
-            <div class="section row">
-                <h2 class="col">Projects</h2>
-                <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3><span class="emph">Neurocomputing - Termination Project</span></h3>
-                        </div>
-                    </div>
-                    <div class="row subsection">
-                        <div class="emph col">Binghamton, USA</div>
-                        <div class="col-right light">Spring 2018</div>
-                    </div>
-                    <ul class="desc">
-                        <li>Designing IoT Edge/fog node system to predict electricity usage using neural network algorithms for preventing blackouts and wastage of electricity.</li>
-                        <li>Implementing RESTapi design for data collection from nodes and storing data to sql.</li>
-                        <li>Creating neural network using TensorFlow and Keras, implementing real-time predictions for next hour.</li>
-                    </ul>
-                </div>
-
-
-                                <div class="section-text col-right">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h3>802.15.4 Vulnurabilities Research</h3>
-                                        </div>
-                                    </div>
-                                    <div class="row subsection">
-                                        <div class="emph col">Binghamton, USA</div>
-                                        <div class="col-right light">Spring 2017</div>
-                                    </div>
-                                    <ul class="desc">
-                                        <li>Researched and pitched on recent IoT attacks like Mirai.</li>
-                                        <li>Dug the Vulnurabilities in 802.15.4 and proposed emulation/simulation using Software Defined Radio.</li>
-                                    </ul>
-                                </div>
-
-                                <div class="section-text col-right">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h3>Object Avoiding in-door internet connected robot </h3>
-                                        </div>
-                                    </div>
-                                    <div class="row subsection">
-                                        <div class="emph col">Hackathon</div>
-                                        <div class="col-right light">Spring 2017</div>
-                                    </div>
-                                    <ul class="desc">
-                                        <li>Created in-door co-ordinate system for rover movements using compass and PWM.</li>
-                                        <li>Implemented object avoidence system using ultra-sonic sensors, and path finidng algorithm.</li>
-                                        <li>Web GUI to choose end location and trip monitoring.</li>
-                                    </ul>
-                                </div>
-
-                <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Network Intrusion Detection System</h3>
-                        </div>
-                    </div>
-                    <div class="row subsection">
-                        <div class="emph col">Binghamton, USA</div>
-                        <div class="col-right light">Spring 2017</div>
-                    </div>
-                    <ul class="desc">
-                        <li>Implemented intrusion detection system to detect attacker,victim,time and type of attack. System was able to monitor real-time activity as well as historical data-logs.</li>
-                        <li>Other related project: DNS Activity Monitor and Ads Blocking Filter</li>
-                        <li>Technologies: Python, Bash, Networks, NMAP & Metasploit</li>
-                    </ul>
-                </div>
-                <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Other academic projects</h3>
-                        </div>
-                    </div>
-                    <ul class="desc">
-                        <li>Designed pipelined processor working With MIPS instructions based on Tomasulo's algorithm</li>
-                        <li>16-bit Manchester Carry adder with Carry bypass using HSPICE and Synopsys.</li>
-                        <li>Designed 32-bit Pipelined CPU with instruction set, optimized by design constraints using Verilog.</li>
-                    </ul>
-                    </ul>
-                </div>
-
-                <!--<div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Hobby Projects</h3>
-                        </div>
-                    </div>
-                    <ul class="desc">
-                      <li>Exhibited Internet of things portotypes in MakerFest'15,'16</li>
-                      <li>Indoor Location tracking using BLE Hardware</li>
-                      <li>Solar tracker using photodiodes and motors to increase effeciency of solar plates</li>
-
-                </div>
-
-                 <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Profile Directory</h3>
-                        </div>
-                    </div>
-                    <div class="row subsection">
-                        <div class="emph col">Khamgaon, India</div>
-                        <div class="col-right light">2011</div>
-                    </div>
-                    <ul class="desc">
-                        <li>Built a standalone application with Java and AWT using ODBC JDBC Connection to full fill the purpose of typical social networking site</li>
-                        <li>Technologies used: SQL, Java, ODBC JDBC, MS Access DB</li>
-                    </ul>
-                </div> -->
-            </div>
         </div>
     </body>
 </html>
