@@ -1,241 +1,465 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Shantanu Patel Resume</title>
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700|Source+Sans+Pro:400,400i" rel="stylesheet">
-    <body>
-        <div class="page">
-            <div class="section row">
-                <div>
-                    <h1 class="col"><span style="font-weight:700">Shantanu</span> Patel</h1>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Field Development Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @media print {
+            body { 
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; }
+        }
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.35;
+            color: #2d3748;
+            background: #ffffff;
+            font-size: 10.5px;
+        }
+        
+        .container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            min-height: 11in;
+            padding: 0.4in 0.5in;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .name {
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .title {
+            font-size: 1.05rem;
+            color: #4a5568;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+        
+        .contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            font-size: 0.85rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #4a5568;
+        }
+        
+        .section {
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid #e2e8f0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .summary {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #4a5568;
+            text-align: left;
+        }
+        
+        .job {
+            margin-bottom: 0.9rem;
+            page-break-inside: avoid;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.25rem;
+            flex-wrap: wrap;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            color: #1a202c;
+            font-size: 0.98rem;
+        }
+        
+        .company {
+            color: #4a5568;
+            font-weight: 500;
+        }
+        
+        .location-date {
+            color: #718096;
+            font-size: 0.85rem;
+            text-align: right;
+        }
+        
+        .job-description {
+            color: #4a5568;
+            font-style: italic;
+            margin-bottom: 0.35rem;
+            font-size: 0.92rem;
+        }
+        
+        .achievements {
+            list-style: none;
+        }
+        
+        .achievements li {
+            margin-bottom: 0.3rem;
+            padding-left: 1rem;
+            position: relative;
+            line-height: 1.35;
+        }
+        
+        .achievements li:before {
+            content: "•";
+            color: #4299e1;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .achievement-title {
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+        
+        .skill-category {
+            margin-bottom: 0.4rem;
+        }
+        
+        .skill-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.15rem;
+            font-size: 0.92rem;
+        }
+        
+        .skill-list {
+            color: #4a5568;
+            line-height: 1.35;
+        }
+        
+        .project {
+            margin-bottom: 0.6rem;
+            page-break-inside: avoid;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.15rem;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: #1a202c;
+        }
+        
+        .project-year {
+            color: #718096;
+            font-size: 0.85rem;
+        }
+        
+        .project-description {
+            color: #4a5568;
+            line-height: 1.35;
+        }
+        
+        .education {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .degree {
+            font-weight: 600;
+            color: #1a202c;
+        }
+        
+        .school {
+            color: #4a5568;
+            margin-top: 0.1rem;
+        }
+        
+        .gpa-date {
+            text-align: right;
+            color: #718096;
+        }
+        
+        @media print {
+            .container {
+                box-shadow: none;
+                padding: 0.35in 0.4in;
+            }
+            body {
+                font-size: 10px;
+            }
+            .section {
+                margin-bottom: 0.85rem;
+            }
+            .job {
+                margin-bottom: 0.75rem;
+            }
+            .achievements li {
+                margin-bottom: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="name">Shantanu Patel</h1>
+            <div class="contact">
+                <div class="contact-item">📧 shantanoopatel@gmail.com</div>
+                <div class="contact-item">📱 607-338-8486</div>
+                <div class="contact-item">🌐 https://www.linkedin.com/in/patelshantanoo</div>
+                <div class="contact-item">📍 California, US</div>
+            </div>
+        </div>
 
-                <div class="contact-info col-right">
-                    <div><a href="mailto:spate100@binghamton.edu">spate100@binghamton.edu</a></div>
-                    <div>38 Van Reipen Ave, Jersey City, NJ - 07306</div>
+        <div class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary">
+                Product leader with 8+ years driving 0-to-1 growth and enterprise customer success across AI-powered supply chain and IoT solutions. Currently leading product strategy at Hopstack with 95%+ retention and 4x revenue expansion through hypothesis-driven discovery and rapid iteration. Strong technical foundation (firmware, IoT, AI/ML) enables deep collaboration with engineering teams while maintaining focus on customer outcomes and business impact. Proven track record reducing time-to-value by 80%, building cross-functional teams from scratch, and translating complex technical capabilities into products customers love.            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Head of Product</div>
+                        <div class="company">Hopstack</div>
+                    </div>
+                    <div class="location-date">
+                        <div>California, United States</div>
+                        <div>Jun 2023 - Present</div>
+                    </div>
                 </div>
+                <div class="job-description">AI-Powered Supply Chain Solutions</div>
+                <ul class="achievements">
+                    <li>Owned product strategy and roadmap as core leadership team member, defining 18-month vision across 3 strategic pillars: AI-powered automation, multi-warehouse orchestration, and API platform. Coordinated with founders, marketing, sales, and engineering to align product development with go-to-market execution, driving 4x revenue growth and expansion to 15+ enterprise customers</li>
+                    <li>Built product organization from 0-to-1 (Product, Implementation, Success, Support) achieving 95%+ customer retention. Transformed delivery model from 15-week implementations to 3-week rapid deployments (80% reduction), increasing feature adoption from 40% to 85% through engineering partnership and continuous customer feedback loops</li>
+                    <li>Designed systematic product discovery framework combining customer research, competitive analysis, and usage data. Implemented RICE prioritization methodology evaluating 50+ requests, enabling repeatable roadmap planning process that reduced delivery cycles 10x (6 months→6 weeks) while achieving 85% adoption through validation-driven development</li>
+                    <li>Led strategic product decisions to maximize engineering impact, regularly sunsetting low-value features and deprioritizing customer requests based on rigorous RICE evaluation.Reallocated engineering capacity to high-impact opportunities, prioritizing AI automation that achieved 70% customer adoption and improved team velocity by 40%</li>
+                </ul>
             </div>
 
-            <div class="section row">
-                <div>
-                    <ul class="desc" style="font-size:14px; text-align:center" >
-                        <span class="key">LinkedIn: <a href="https://www.linkedin.com/in/patelshantanoo">www.linkedin.com/in/patelshantanoo</a> </span><span class="key"> Github: <a href="https://www.github.com/xhan0o">www.github.com/xhan0o</a> </span><span class="key"> Portfolio: <a href="http://shan0o.com">shan0o.com</a></span>
-                    </ul>
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Senior Software Engineer</div>
+                        <div class="company">LG Electronics</div>
+                    </div>
+                    <div class="location-date">
+                        <div>Santa Clara, CA</div>
+                        <div>Nov 2018 - Jun 2023</div>
+                    </div>
                 </div>
+                <div class="job-description">AI, IoT & Connected Technologies Innovation Center</div>
+                <ul class="achievements">
+                    <li>Re-architected fleet management firmware (CAN, OBD2, GPS) achieving 16x performance improvement for high-frequency data collection, processing 10K+ data points/second across 500+ connected vehicles</li>
+                    <li>Led architecture of end-to-end autonomous retail system combining computer vision, IoT sensors, edge computing, and consumer-facing app - deployed as internal demo serving 100+ stakeholder visits, driving executive buy-in for new product initiatives</li>
+                    <li>Developed sensor fusion algorithms for autonomous shopping applications, resulting in 4 granted patents in IoT and software-hardware integration, strengthening competitive positioning</li>
+                    <li>Designed and prototyped post-quantum cryptography implementations for edge devices, evaluating performance trade-offs across ARM and x86 architectures to inform future product roadmaps</li>
+                    <li>Led technical evaluation and vendor partnerships for IoT deployments, achieving 50% hardware cost reduction through strategic component selection and volume negotiations, directly impacting product margins</li>
+                    <li>Collaborated with cross-functional teams (design, product, business) to translate technical capabilities into product demonstrations for robotics and immersive technology initiatives, influencing executive investment decisions</li>
+                    <li>Mentored junior engineers on embedded systems, IoT architecture, and rapid prototyping methodologies while maintaining strict confidentiality on pre-launch product development</li>
+                </ul>
             </div>
 
-            <div class="section row">
-                <h2 class="col">Education</h2>
-                <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3><span class="emph">Master of Science</span> in Electrical & Computer Engineering</h3>
-                        </div>
-                        <div class="col-right light">GPA 3.56</div>
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">IoT Solutions Architect</div>
+                        <div class="company">Smith Engineering, PLLC</div>
                     </div>
-                    <div class="row subsection">
-                        <div class="emph col">State University of New York at Binghamton - SUNY</div>
-                        <div class="col-right light">August 2016 - May 2018</div>
+                    <div class="location-date">
+                        <div>New York, NY</div>
+                        <div>May 2017 - May 2018</div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <h3><span class="emph">Bachelor of Technology</span> in Electronics & Communications</h3>
-                        </div>
-                        <div class="col-right light">GPA 3.8</div>
-                    </div>
-                    <div class="row subsection">
-                        <div class="emph col">Charusat Institute of Science and Technology </div>
-                        <div class="col-right light">July 2011 - May 2015</div>
-                    </div>
-                <div class="row">
-                    <div class="col">
-                        <h3><span class="emph">Certifications</span> in C and C++</h3>
-                    </div>
-                    <div class="col-right light">Excellence</div>
                 </div>
-                <div class="row subsection">
-                    <div class="emph col">Center for Development of Advance Computing</div>
-                    <div class="col-right light">July 2014 - License GNV01Ju14422998</div>
-                </div>
-            </div>
-            </div>
-            <div class="section row">
-                <h2 class="col">Skills</h2>
-                <div class="section-text col-right row">
-                    <ul class="skills" style="width:90%">
-                        <li><span style="font-style: italic;" class="emph">Languages </span>[Proficient]: C, Python, C++ [Intermediate]: </span> Shell/Bash, Assembly, VHDL</li>
-                        <li><span style="font-style: italic;" class="emph">Hardware: </span> board bring up, Bare Metal, Software Defined Radio, Arduino / Raspberry Pi, Oscilloscopes, Function Generator, Logic analyzer, FPGA, and Sensors peripherals</li>
-                        <li><span style="font-style: italic;" class="emph">Tools: </span> Linux, RTOS (QNX & FreeRTOS), Keil-uVision, git, LaTeX, synopsys, Xilinx ISE and EDK, MATLAB, Metasploit, NMAP, Hardware specific API</li>
-                        <li><span style="font-style: italic;" class="emph">Protocols: </span> SPI, I2C, UART, USB, CAN, TCP/IP, MQTT, REST [Comms]: </span> BLE, WIFI, Cellular (2G/3G), 802.15.4</li></li>
-                    </ul>
-                </div>
-            </div>
-          <!--  <div class="section row">
-                <h2 class="col">Coursework</h2>
-                <div class="section-text col-right row">
-                    <ul class="skills" style="width:20%">
-                        <li>Mathematics for EECE</li>
-                        <li>Systems on Chip Design</li>
-                        <li>Digital System Design</li>
-                    </ul>
-                    <ul class="skills" style="width:20%">
-                        <li>Computer Design</li>
-                        <li>Computer Architecture</li>
-                        <li>Control Systems</li>
-                    </ul>
-                    <ul class="skills" style="width:20%">
-                        <li>Embedded Systems</li>
-                        <li>Image Processing</li>
-                        <li>Signal Processing</li>
-                    </ul>
-                    <ul class="skills" style="width:30%">
-                        <li>Computer Network Security</li>
-                        <li>Computer Network Architecture</li>
-                        <li>IoT and Smart-cities </li>
-                    </ul>
-                </div>
-            </div> -->
-
-            <div class="section row">
-                <h2 class="col">Experience</h2>
-                <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Smith Engineering PLLC</h3>
-                        </div>
-                        <div class="col-right light">New york, USA</div>
-                    </div>
-                    <div class="row subsection">
-                        <div class="emph col">IoT / Embedded Co-Op Engineer</div>
-                        <div class="col-right light">May 2017 - December 2017</div>
-                    </div>
-                    <ul class="desc">
-                      <li>Designed 6 IoT PoCs based on Cellular and wifi connectivity. Two of them are currently deployed on field.</li>
-                      <li>Wrote firmware for embedded hardware to convert standard industrial meters into cloud connected meters.</li>
-                      <li>Programmed u-controllers (ARM Cortex M3 based) using C / C++ to read industrial meters with ADC, I2C, and SPI Protocols. </li>
-                      <li>Developed Linux based system​ for cloud connected data-logger, implemented multi-threading and fault-tolerance for reliability.</li>
-                      <li>Productionized full-scale JSON based RESTAPIs using Python - Flask and SQL, wrote python library to interact with cloud data servers(Azure).</li>
-                      <li>Created other PoCs using Azure and GCP services with different protocols like MQTT / Pub-Sub.</li>
-                    </ul>
-                </div>
-
-                <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Jet Stream Electric</h3>
-                        </div>
-                        <div class="col-right light">IISc, Bangalore, India</div>
-                    </div>
-                    <div class="row subsection">
-                        <div class="emph col">Electronics Engineer</div>
-                        <div class="col-right light">March 2015 - July 2016</div>
-                    </div>
-                    <ul class="desc">
-                        <li>Part of the three person core team of the startup that built the 200W Airborne Wind Energy prototype (“Aircraft flying in the sky (consuming almost no fuel), generating electricity, and supplying to a grid”)</li>
-                        <li>Maintained and tweaked the Ardupilot hardware with small firmware edits. Experimented with flight sensors (IMU, Pitot tube) for understanding flight mechanics.</li>
-                        <li>Implemented cutting-edge research papers on MATLAB to calculate trajectory for fuel-less flight</li>
-                        <li>Designed (Scrum-Agile) and documented experiments, technology procedures which involved multiple engineering teams.</li>
-                    </ul>
-                </div>
-                <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Cross Shore Solutions</h3>
-                        </div>
-                        <div class="col-right light">Ahmedabad, India</div>
-                    </div>
-                    <div class="row subsection">
-                        <div class="emph col">IoT Research intern</div>
-                        <div class="col-right light">March 2014 - March 2015</div>
-                    </div>
-                    <ul class="desc">
-                        <li> Researched on BLE 4.0 hardware (HM 10) and demonstrated innovative solutions for in-door location and advertising using iBeacon.</li>
-                    </ul>
-                </div>
+                <ul class="achievements">
+                    <li>Developed end-to-end remote data logging solution including hardware procurement and standards-compliant enclosure design, board bring-up, backend API implementation (Flask), GCP IoT Hub integration, device health monitoring, and reporting dashboards</li>
+                    <li>Deployed IoT solutions to enterprise facilities (MERCK, MSKCC), managing on-site installations and ensuring system reliability for production environments</li>
+                    <li>Designed 30-channel data-logger architecture processing 1M+ data points hourly with JSON-based REST APIs, webhooks, and multi-cloud integrations (Azure, GCP), achieving 30% cost reduction through optimized design</li>
+                    <li>Mentored team of 3 fellow interns and trained in-house employees on system operation, deployment, maintenance, and troubleshooting procedures</li>
+                </ul>
             </div>
 
-            <div class="section row">
-                <h2 class="col">Projects</h2>
-                <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3><span class="emph">Neurocomputing - Smart city energy predictions [Python, Linux]</span></h3>
-                        </div>
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Research Engineer</div>
+                        <div class="company">Jet Stream Electric</div>
                     </div>
-                    <div class="row subsection">
-                        <div class="emph col">Binghamton, USA</div>
-                        <div class="col-right light">Spring 2018</div>
+                    <div class="location-date">
+                        <div>Bangalore, India</div>
+                        <div>Mar 2014 - Jul 2016</div>
                     </div>
-                    <ul class="desc">
-                      <li>Emulated smart city architecture using Raspberry Pis using RESTful APIs using Flask and ngrok.</li>
-                      <li>Implemented a fog server to listen and store data in SQL database, for processing/visualization (Pandas) and predictions.</li>
-                      <li>Generated hourly predictions using LSTM neural networks implemented on keras-tensorflow.</li>
+                </div>
+                <div class="job-description">Early-Stage Startup (3-person core team)</div>
+                <ul class="achievements">
+                    <li>Developed 200W airborne wind energy prototype with kite-and-tether system, integrating flight sensors and data acquisition systems to validate power generation feasibility</li>
+                    <li>Maintained and optimized Ardupilot flight controller with custom firmware modifications, enabling real-time sensor data collection for experimental flight testing and performance analysis</li>
+                    <li>Coordinated with external SMEs and contractors on prototype fabrication and flight testing, contributing to iterative design improvements based on field test data</li>
+                </ul>
+            </div>
+        </div>
 
-                    </ul>
+        <div class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-title">Product Management</div>
+                    <div class="skill-list">Product Strategy & Roadmapping, Customer Discovery, A/B Testing, Feature Prioritization (RICE), Jobs-to-be-Done, OKRs</div>
                 </div>
-                <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Tomasulo algorithm - processor Design [C++, MIPS]</h3>
-                        </div>
-                    </div>
-                    <div class="row subsection">
-                        <div class="emph col">Binghamton, USA</div>
-                        <div class="col-right light">Fall 2016</div>
-                    </div>
-                    <ul class="desc">
-                        <li>Reading MIPS instructions from txt file to execute the program. Implemented out-of-order execution 4-staged pipelined architecture.</li>
-                        <li>Created working processor with 16 registers, 20 memory addresses, reorder buffer and reservation station.</li>
-                    </ul>
+                <div class="skill-category">
+                    <div class="skill-title">Analytics & Data</div>
+                    <div class="skill-list">SQL, Python (Pandas, NumPy), Product Analytics Tools, Statistical Analysis, Data Visualization, KPI Tracking</div>
                 </div>
-                <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Network Intrusion Detection System [Python, Metasploit, NMAP]</h3>
-                        </div>
-                    </div>
-                    <div class="row subsection">
-                        <div class="emph col">Binghamton, USA</div>
-                        <div class="col-right light">Spring 2017</div>
-                    </div>
-                    <ul class="desc">
-                        <li>Implemented an intrusion detection system to detect the attacker, victim, the time, and the type of attack. The system was able to monitor real-time activity as well as historical data-logs of tcpdump.</li>
-                        <li>Other related project: DNS Activity Monitor and Ads Blocking Filter.</li>
-                        <li>Practiced man-in-the-middle, evil twin, metasploit attacks on windows and linux based lab environments(IPV4).</li>
-                    </ul>
+                <div class="skill-category">
+                    <div class="skill-title">AI & Modern Development</div>
+                    <div class="skill-list">Claude, Open AI, Gemini/AI Studio, LangChain, Prompt Engineering, Vercel, V0, Replit, Cursor, Supabase, AI Agent Development</div>
                 </div>
-
-                <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                        </div>
-                        <h3><span class="emph">Image Rotating FPGA , Hardware Software Co-Design [C, VHDL]</span></h3>
-                    </div>
-                    <div class="row subsection">
-                        <div class="emph col">Binghamton, USA</div>
-                        <div class="col-right light">Spring 2017</div>
-                    </div>
-                    <ul class="desc">
-                        <li>Using Xilinx's ISE fabricated virtual hardware which can rotate image 200% faster than usual.</li>
-                        <li>Created hardware APIs for fabricated hardware with VHDL. Using APIs with C/C++ rotated image and ran tests. cases.</li>
-                        <li>This is a common implementation for modern processors like ARM Cortex M-3,M-4,M-7</li>
-                    </ul>
-                </div>
-
-                <div class="section-text col-right">
-                    <div class="row">
-                        <div class="col">
-                            <h3>Hobby Projects</h3>
-                        </div>
-                    </div>
-                    <ul class="desc">
-                      <li>FreeRTOS on my pebble watch.[RTOS]</li>
-                      <li>Exhibited Internet of things prototypes in MakerFest '15 and '16. Was a participant in multiple Hackathons.[iBeacon, js, ESP32]</li>
-                      <li>Solar tracker using photodiodes and motors to increase efficiency of solar plates. [Embedded HW & SW]</li>
+                <div class="skill-category">
+                    <div class="skill-title">Collaboration & Prototyping</div>
+                    <div class="skill-list">JIRA, Linear, Confluence, Figma, Miro, Agile/Scrum, MVP Development, Rapid Prototyping</div>
                 </div>
             </div>
         </div>
-    </body>
+
+
+        <div class="section">
+            <h2 class="section-title">Key Projects</h2>
+         <!-- Key Projects Section - Hidden for now -->
+        <!--           
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">Robotic ARM Implementation - Y-Combinator Startup Consulting</div>
+                    <div class="project-year">2023</div>
+                </div>
+                <div class="project-description">
+                    Identified product gaps, defined implementation SOPs, trained internal team members, and developed scalable deployment strategies
+                </div>
+            </div>
+ -->
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">Pallet Visibility & Tracking System - Granted patent - Logistics Company</div>
+                </div>
+                <div class="project-description">
+                    Designed and deployed end-to-end software-hardware solution with camera-based barcode detection and cloud-based tracking system. Published patent for shipment visibility technology.
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">AI-Powered Warehouse Automation Tools</div>
+                </div>
+                <div class="project-description">
+                    Built AI-powered automation tools to solve operational pain points for warehouse teams: (1) Auto-cropping solution extracting 4x6 shipping labels from A4 e-commerce return labels, reducing processing time from minutes to seconds, and (2) Document parsing tool using Anthropic Claude APIs to convert scanned PDFs into standardized Hopstack WMS templates, eliminating manual data entry
+                </div>
+            </div>
+        </div>
+       
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education">
+                <div>
+                    <div class="degree">Master of Science, Computer Engineering</div>
+                    <div class="school">State University of New York at Binghamton</div>
+                </div>
+                <div class="gpa-date">
+                    <div>GPA: 3.56</div>
+                    <div>Aug 2016 - May 2018</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Open Source & Community</h2>
+            <div class="project-description">
+                Contributed to Pine64 watch project, demonstrated projects at MakerFest, Museum of Mathematics Hackathon, HackBU - major league hacking events
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Print functionality
+        function printResume() {
+            window.print();
+        }
+        
+        // Add print button for screen view
+        if (!window.matchMedia('print').matches) {
+            const printBtn = document.createElement('button');
+            printBtn.textContent = 'Print / Export PDF';
+            printBtn.className = 'no-print';
+            printBtn.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                background: #4299e1;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-family: Inter, sans-serif;
+                font-weight: 500;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                z-index: 1000;
+            `;
+            printBtn.onclick = printResume;
+            document.body.appendChild(printBtn);
+        }
+    </script>
+</body>
 </html>
