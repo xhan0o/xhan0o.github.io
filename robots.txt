@@ -1,0 +1,99 @@
+# robots.txt for xhan0o.github.io
+# Allow all crawlers including AI agents
+
+# Universal rule - allow all crawlers
+User-agent: *
+Allow: /
+
+# Explicitly allow major AI crawlers/agents
+# OpenAI (ChatGPT, GPT models)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Google AI (Gemini, Bard)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# Common Crawl (used by many AI training datasets)
+User-agent: CCBot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Applebot (Apple AI)
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Bytedance/TikTok AI
+User-agent: Bytespider
+Allow: /
+
+# Amazon (Alexa AI)
+User-agent: Amazonbot
+Allow: /
+
+# Yandex (Russian search/AI)
+User-agent: YandexBot
+Allow: /
+
+# Other AI research crawlers
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: ImagesiftBot
+Allow: /
+
+User-agent: Omgilibot
+Allow: /
+
+# Traditional search engines (included for completeness)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Sitemap location
+Sitemap: https://shan0o.com/sitemap.xml
+
