@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>Resume - Forward Deployed Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @media print {
+            body { 
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; }
+        }
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.35;
+            color: #2d3748;
+            background: #ffffff;
+            font-size: 10.5px;
+        }
+        
+        .container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            min-height: 11in;
+            padding: 0.4in 0.5in;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .name {
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .title {
+            font-size: 1.05rem;
+            color: #4a5568;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+        
+        .contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            font-size: 0.85rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #4a5568;
+        }
+        
+        .section {
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid #e2e8f0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .summary {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #4a5568;
+            text-align: left;
+        }
+        
+        .job {
+            margin-bottom: 0.9rem;
+            page-break-inside: avoid;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.25rem;
+            flex-wrap: wrap;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            color: #1a202c;
+            font-size: 0.98rem;
+        }
+        
+        .company {
+            color: #4a5568;
+            font-weight: 500;
+        }
+        
+        .location-date {
+            color: #718096;
+            font-size: 0.85rem;
+            text-align: right;
+        }
+        
+        .job-description {
+            color: #4a5568;
+            font-style: italic;
+            margin-bottom: 0.35rem;
+            font-size: 0.92rem;
+        }
+        
+        .achievements {
+            list-style: none;
+        }
+        
+        .achievements li {
+            margin-bottom: 0.3rem;
+            padding-left: 1rem;
+            position: relative;
+            line-height: 1.35;
+        }
+        
+        .achievements li:before {
+            content: "•";
+            color: #4299e1;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .achievement-title {
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+        
+        .skill-category {
+            margin-bottom: 0.4rem;
+        }
+        
+        .skill-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.15rem;
+            font-size: 0.92rem;
+        }
+        
+        .skill-list {
+            color: #4a5568;
+            line-height: 1.35;
+        }
+        
+        .project {
+            margin-bottom: 0.6rem;
+            page-break-inside: avoid;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.15rem;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: #1a202c;
+        }
+        
+        .project-year {
+            color: #718096;
+            font-size: 0.85rem;
+        }
+        
+        .project-description {
+            color: #4a5568;
+            line-height: 1.35;
+        }
+        
+        .education {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .degree {
+            font-weight: 600;
+            color: #1a202c;
+        }
+        
+        .school {
+            color: #4a5568;
+            margin-top: 0.1rem;
+        }
+        
+        .gpa-date {
+            text-align: right;
+            color: #718096;
+        }
+        
+        @media print {
+            .container {
+                box-shadow: none;
+                padding: 0.35in 0.4in;
+            }
+            body {
+                font-size: 10px;
+            }
+            .section {
+                margin-bottom: 0.85rem;
+            }
+            .job {
+                margin-bottom: 0.75rem;
+            }
+            .achievements li {
+                margin-bottom: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="name">Shantanu Patel</h1>
+            <div class="contact">
+                <div class="contact-item">📧 shantanoopatel@gmail.com</div>
+                <div class="contact-item">📱 607-338-8486</div>
+                <div class="contact-item">🌐 https://www.linkedin.com/in/patelshantanoo</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary">
+                Forward Deployed Engineer who embeds with customers to turn demos into production. Led 500+ demo/technical evaluations and deployed AI-powered solutions across 25+ customer deployments, from pre-sales through training 500+ users. My formula: technical depth (Python, AI/ML, cloud, APIs) + customer empathy = 80% faster implementations, 95%+ retention, and solutions that actually work.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Head of Implementation and Product</div>
+                        <div class="company">Hopstack</div>
+                    </div>
+                    <div class="location-date">
+                        <div>California, United States</div>
+                        <div>Jun 2023 - Present</div>
+                    </div>
+                </div>
+                <div class="job-description">AI-Powered Supply Chain Solutions</div>
+                <ul class="achievements">
+                    <li>Led 500+ product demos and 100+ technical evaluations including RFP responses, architecture reviews, and POC scoping. Worked closely with Sales and Engineering to close 50+ customers, contributing to 4x ARR growth</li>
+                    <li>Led implementations for 15 enterprise customers across 25+ warehouses, managing ERP integrations, data migration, field mapping, and dependency analysis. Coordinated 10+ additional implementations through the team and served as primary technical contact for stakeholders</li>
+                    <li>Trained 500+ warehouse managers, operators, and IT teams through onsite workshops, online sessions, and video documentation. Achieved 80% feature adoption within 45 days across all capabilities, with 200+ daily active users</li>
+                    <li>Delivered measurable ROI for strategic customers: reduced order processing time 80% (10 min → 2 min), enabled $400K annual savings through optimization algorithms, and guided CCPA compliance implementation that unlocked business expansion</li>
+                    <li>Drove operational transformation by using data to overcome change resistance. Created step-by-step adoption roadmaps that reduced churn and established feedback loops with 2 strategic advisory customers</li>
+                    <li>Built Product, Implementation, Success, and Support teams from scratch, achieving 95%+ customer retention. Transformed implementation model from 15 weeks to 3 weeks (80% reduction) and increased feature adoption from 40% to 85% through close engineering partnership and customer feedback</li>
+                    <li>Partnered with founders to define 18-month technical roadmap based on insights from 25+ customer deployments. Prioritized AI-powered automation and multi-warehouse orchestration, driving 4x ARR growth across 15+ enterprise customers</li>
+                    <li>Built a product discovery process combining customer research, competitive analysis, and usage data. Used RICE prioritization to evaluate 50+ requests, creating a repeatable roadmap process that reduced delivery cycles 10x (6 months → 6 weeks) with 85% feature adoption</li>
+                    <li>Made strategic product decisions to maximize engineering impact, regularly sunsetting low-value features and deprioritizing customer requests based on RICE evaluation. Reallocated engineering capacity to high-impact opportunities like AI automation, which achieved 70% customer adoption and improved team velocity 40%</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Senior Software Engineer</div>
+                        <div class="company">LG Electronics</div>
+                    </div>
+                    <div class="location-date">
+                        <div>Santa Clara, CA</div>
+                        <div>Nov 2018 - Jun 2023</div>
+                    </div>
+                </div>
+                <div class="job-description">AI, IoT & Connected Technologies Innovation Center</div>
+                <ul class="achievements">
+                    <li>Designed and demonstrated autonomous retail prototype combining computer vision, IoT sensors, and edge computing to 100+ internal and external stakeholders. Directly influenced executive product decisions and secured strategic partnerships</li>
+                    <li>Led vendor partnership strategy for IoT hardware, driving 50% cost reduction through technical evaluation, bulk price negotiations, and joint roadmap development. Improved product margins and supplier capabilities</li>
+                    <li>Re-architected fleet management firmware (CAN, OBD2, GPS), achieving 16x performance improvement for high-frequency data collection. Processed 10K+ data points/second across 500+ connected vehicles</li>
+                    <li>Developed sensor fusion algorithms for autonomous applications, resulting in 4 granted patents in IoT and software-hardware integration</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">IoT Solutions Architect</div>
+                        <div class="company">Smith Engineering, PLLC</div>
+                    </div>
+                    <div class="location-date">
+                        <div>New York, NY</div>
+                        <div>May 2017 - May 2018</div>
+                    </div>
+                </div>
+                <ul class="achievements">
+                    <li>Deployed as onsite solutions architect for Fortune 500 healthcare customers (MERCK, MSKCC), leading IoT implementations from 0-to-1. Managed installation, standards compliance validation, and 1-year+ production support while serving as primary technical contact for facility IT teams</li>
+                    <li>Built end-to-end remote data logging solution including hardware procurement, standards-compliant enclosure design, Flask-based backend APIs, and GCP IoT Hub integration. Deployed reporting dashboards to enterprise facilities</li>
+                    <li>Designed 30-channel data-logger architecture processing 1M+ data points hourly with JSON-based REST APIs, webhooks, and multi-cloud integrations (Azure, GCP). Achieved 30% cost reduction through optimized design</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">AI & Automation Implementations</h2>
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">AI-Powered Warehouse Automation Suite</div>
+                </div>
+                <div class="project-description">
+                    Architected and deployed AI automation tools integrated into Hopstack's core product: (1) Document parsing system using Anthropic Claude API, achieving 85% accuracy across 20+ template types with human-in-the-loop review, and (2) Label auto-cropping tool achieving 95% accuracy for e-commerce returns processing
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">Shipment observability solution for shipping doc (published patent)</div>
+                </div>
+                <div class="project-description">
+                    Served as forward deployed engineer for external logistics customer, leading end-to-end deployment of pallet tracking system through onsite installation, calibration, and testing. Increased supply chain observability and enabled 2-day early delay detection vs. end-of-month reporting
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">Optimization Algorithms</div>
+                </div>
+                <div class="project-description">
+                    Implemented AI-driven order batching and picker route optimization for planning and grouping. Reduced warehouse picking time 80% and enabled bulk label generation for 100+ identical orders to improve packing efficiency
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Indie Projects</h2>
+
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title"><a href="https://utils.shan0o.com" target="_blank" rel="noopener">utils.shan0o.com</a></div>
+                </div>
+                <div class="project-description">
+                    Production web app with a suite of utilities (PDF crop, ZPL label tools, Excel/CSV helpers).
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title"><a href="https://itemom.com" target="_blank" rel="noopener">itemom.com</a></div>
+                </div>
+                <div class="project-description">
+                    Full-stack personal inventory app for fast capture, search, and tagging; explores modern auth, storage, and real-time data patterns; production-deployed sandbox for UX, database design, and AI-assisted features.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-title">Programming &amp; Development</div>
+                    <div class="skill-list">Python, C, JavaScript/TypeScript, SQL, Mongo, Shell/Bash | REST APIs, Webhooks, Microservices, Queues</div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-title">AI/ML &amp; Modern Tools</div>
+                    <div class="skill-list">Claude Code, Cursor, Prompt Engineering | Vercel/V0, Cursor, Replit, Supabase, AI Agent Development</div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-title">Infrastructure &amp; Platforms</div>
+                    <div class="skill-list">Github/ Actions, AWS, GCP | Linux, CI/CD, Logs, LauchDarkly |  Linear, JIRA, Notion </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education">
+                <div>
+                    <div class="degree">MS Computer Engineering</div>
+                    <div class="school">State University of New York at Binghamton</div>
+                </div>
+                <div class="gpa-date">
+                    <div>2016 - 2018</div>
+                </div>
+            </div>
+            <div class="education" style="margin-top: 0.4rem;">
+                <div>
+                    <div class="degree">BTECH Electronics &amp; TeleCommunication</div>
+                    <div class="school">CHARUSAT</div>
+                </div>
+                <div class="gpa-date">
+                    <div>2010 - 2014</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Print functionality
+        function printResume() {
+            window.print();
+        }
+        
+        // Add print button for screen view
+        if (!window.matchMedia('print').matches) {
+            const printBtn = document.createElement('button');
+            printBtn.textContent = 'Print / Export PDF';
+            printBtn.className = 'no-print';
+            printBtn.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                background: #4299e1;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-family: Inter, sans-serif;
+                font-weight: 500;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                z-index: 1000;
+            `;
+            printBtn.onclick = printResume;
+            document.body.appendChild(printBtn);
+        }
+    </script>
+</body>
+</html>
+
