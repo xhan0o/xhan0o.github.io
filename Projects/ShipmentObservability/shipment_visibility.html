@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>Enterprise Shipment Visibility System | Shantanu Patel</title>
+    <meta name="description" content="Computer vision-powered real-time tracking for manufacturing logistics">
+    <meta name="author" content="Shantanu Patel">
+    <meta name="keywords" content="computer vision, edge computing, IoT, barcode detection, shipment tracking, logistics, supply chain, real-time monitoring, enterprise deployment, patent">
+    <link rel="canonical" href="https://shan0o.com/Projects/ShipmentObservability/shipment_visibility.html">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Enterprise Shipment Visibility System | Shantanu Patel">
+    <meta property="og:description" content="Computer vision-powered real-time tracking for manufacturing logistics. Patent US20230060506A1.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://shan0o.com/Projects/ShipmentObservability/shipment_visibility.html">
+    <meta property="og:site_name" content="Shantanu Patel Portfolio">
+    
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <script>
+      window.tailwind = window.tailwind || {};
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              accent: {
+                DEFAULT: '#00D9FF',
+                soft: '#67E8F9'
+              }
+            },
+            fontFamily: {
+              sans: ["Inter", "-apple-system", "system-ui", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"],
+              mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "monospace"]
+            },
+            boxShadow: {
+              glow: '0 0 0 1px rgba(0,217,255,0.25), 0 8px 30px rgba(0,217,255,0.08)'
+            }
+          }
+        }
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      .backdrop-blur-safari { -webkit-backdrop-filter: saturate(180%) blur(12px); backdrop-filter: saturate(180%) blur(12px); }
+      .gradient-ring { position: relative; }
+      .gradient-ring::before {
+        content: ""; position: absolute; inset: -1px; z-index: -1; border-radius: 16px;
+        background: radial-gradient(1200px 400px at 0% 0%, rgba(0,217,255,0.15), transparent 40%),
+                    radial-gradient(800px 200px at 100% 0%, rgba(139,92,246,0.10), transparent 40%);
+      }
+      .focus-ring:focus-visible { outline: none; box-shadow: 0 0 0 2px rgba(0,217,255,0.6); }
+    </style>
+</head>
+<body class="bg-neutral-950 text-neutral-100 antialiased selection:bg-accent/20 selection:text-accent">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/60 backdrop-blur-safari">
+        <div class="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
+            <a href="/index.html" class="font-semibold tracking-tight text-neutral-200 hover:text-white focus-ring">Shantanu Patel</a>
+            <div class="flex items-center gap-2">
+                <a href="/index.html" class="focus-ring inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/10" aria-label="Back to portfolio">← Portfolio</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="mx-auto max-w-7xl px-6 py-8">
+        <!-- Hero Section -->
+        <div class="relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-6 md:p-8 mb-6">
+            <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+                <div class="h-64 bg-[radial-gradient(100%_60%_at_0%_0%,rgba(0,217,255,0.15),transparent),radial-gradient(80%_40%_at_100%_0%,rgba(139,92,246,0.10),transparent)]"></div>
+            </div>
+            <div class="relative">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                    <div class="flex-1">
+                        <span class="inline-block text-xs font-mono uppercase tracking-widest text-accent mb-4">Enterprise Deployment</span>
+                        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-3">Enterprise Shipment Visibility System</h1>
+                        <p class="text-lg text-neutral-300 mb-6">Computer vision-powered real-time tracking for manufacturing logistics</p>
+                        <div class="flex flex-wrap gap-4 text-sm text-neutral-400">
+                            <div class="flex items-center gap-2">
+                                <strong class="text-neutral-300">Deployment:</strong> Multiple US Manufacturing Facilities
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <div class="rounded-xl border border-accent/30 bg-gradient-to-br from-white/10 to-white/5 p-6 shadow-glow">
+                            <div class="text-3xl mb-2">📜</div>
+                            <div class="text-sm font-mono uppercase tracking-widest text-accent mb-1">Patent</div>
+                            <div class="text-base font-semibold text-white">US20230060506A1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Demo Section -->
+        <div class="grid md:grid-cols-2 gap-4 mb-6">
+            <div class="flex justify-center items-center">
+                <video class="w-full max-w-[280px] aspect-[9/16] rounded-xl border border-white/10 shadow-glow" src="shipment_observability.mp4" controls playsinline preload="metadata" muted></video>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="text-xl">⚠️</div>
+                    <h2 class="text-lg font-semibold text-white">The Business Challenge</h2>
+                </div>
+                <div class="text-neutral-300 space-y-3">
+                    <p class="text-sm font-medium text-neutral-200">A global HVAC controls manufacturer faced a critical supply chain blind spot:</p>
+                    <ul class="space-y-1.5 list-none text-sm">
+                        <li class="pl-4 relative"><span class="absolute left-0 text-accent">▹</span><strong class="text-neutral-200">No visibility</strong> on actual carrier pickup times from staging areas</li>
+                        <li class="pl-4 relative"><span class="absolute left-0 text-accent">▹</span><strong class="text-neutral-200">Days of delay</strong> without tracking between ERP goods issue and carrier pickup</li>
+                        <li class="pl-4 relative"><span class="absolute left-0 text-accent">▹</span><strong class="text-neutral-200">Incomplete data</strong> LTL and small parcels grouped on wooden pallets</li>
+                        <li class="pl-4 relative"><span class="absolute left-0 text-accent">▹</span><strong class="text-neutral-200">Customer service</strong> unable to provide accurate delivery estimates</li>
+                    </ul>
+                    <div class="rounded-lg border border-accent/30 bg-gradient-to-br from-accent/20 to-accent/10 p-3 text-sm text-neutral-200">
+                        <strong class="text-accent">Solution:</strong> Computer vision-powered real-time timestamp capture system
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="space-y-6 pb-16">
+            <!-- The Solution -->
+            <section class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center text-xl">💡</div>
+                    <h2 class="text-2xl font-semibold tracking-tight text-white">The Solution</h2>
+                </div>
+                <p class="text-neutral-300 max-w-3xl">Designed and deployed an end-to-end computer vision system that automatically captures shipment timestamps at the exact moment pallets exit facility doors. The system combines edge computing, AI-powered label detection, and cloud integration to provide real-time shipment visibility.</p>
+
+                <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+                    <h2 class="text-lg font-semibold text-white mb-3">System Architecture</h2>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-5">
+                            <h4 class="text-sm font-mono uppercase tracking-widest text-accent mb-3">Edge Hardware</h4>
+                            <ul class="space-y-2 text-sm text-neutral-300">
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>12MP 4K UHD Cameras (Bosch)</li>
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>Edge compute hardware (x86)</li>
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>Time-of-flight sensors (4-6m range)</li>
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>Visual indicator lights</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-5">
+                            <h4 class="text-sm font-mono uppercase tracking-widest text-accent mb-3">Software Stack</h4>
+                            <ul class="space-y-2 text-sm text-neutral-300">
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>Docker containerized pipeline</li>
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>Message queue architecture</li>
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>Computer vision models</li>
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>Barcode OCR with de-skewing</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-5">
+                            <h4 class="text-sm font-mono uppercase tracking-widest text-accent mb-3">Cloud Platform</h4>
+                            <ul class="space-y-2 text-sm text-neutral-300">
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>Proprietary matching algorithms</li>
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>AWS S3 image archival</li>
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>ERP system integration</li>
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>Real-time dashboard & alerts</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-5">
+                            <h4 class="text-sm font-mono uppercase tracking-widest text-accent mb-3">Monitoring & Ops</h4>
+                            <ul class="space-y-2 text-sm text-neutral-300">
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>Scalyr logging infrastructure</li>
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>Device health monitoring</li>
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>CI/CD deployment pipeline</li>
+                                <li class="pl-5 relative"><span class="absolute left-0 text-accent">▹</span>Production alerting system</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-xl border border-white/10 bg-white/5 p-5">
+                    <h2 class="text-lg font-semibold text-white mb-4">System Process Flow</h2>
+                    <!-- Compact grid layout -->
+                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3">
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-3.5 hover:bg-white/10 transition hover:border-accent/30 group">
+                            <div class="flex items-start gap-2.5">
+                                <div class="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center text-xs font-bold text-white mt-0.5">1</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-semibold text-white text-xs mb-1 leading-tight">Shipment Detection</h4>
+                                    <p class="text-[11px] text-neutral-400 leading-snug">Time-of-flight sensors detect pallet entry (4-6m)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-3.5 hover:bg-white/10 transition hover:border-accent/30 group">
+                            <div class="flex items-start gap-2.5">
+                                <div class="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center text-xs font-bold text-white mt-0.5">2</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-semibold text-white text-xs mb-1 leading-tight">Image Capture</h4>
+                                    <p class="text-[11px] text-neutral-400 leading-snug">4K camera captures frames with shipping labels</p>
+                        </div>
+                    </div>
+                        </div>
+                        
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-3.5 hover:bg-white/10 transition hover:border-accent/30 group">
+                            <div class="flex items-start gap-2.5">
+                                <div class="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center text-xs font-bold text-white mt-0.5">3</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-semibold text-white text-xs mb-1 leading-tight">Label Detection</h4>
+                                    <p class="text-[11px] text-neutral-400 leading-snug">Computer vision identifies and localizes labels</p>
+                        </div>
+                    </div>
+                        </div>
+                        
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-3.5 hover:bg-white/10 transition hover:border-accent/30 group">
+                            <div class="flex items-start gap-2.5">
+                                <div class="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center text-xs font-bold text-white mt-0.5">4</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-semibold text-white text-xs mb-1 leading-tight">Barcode Reading</h4>
+                                    <p class="text-[11px] text-neutral-400 leading-snug">OCR decodes barcodes and extracts tracking IDs</p>
+                        </div>
+                    </div>
+                        </div>
+                        
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-3.5 hover:bg-white/10 transition hover:border-accent/30 group">
+                            <div class="flex items-start gap-2.5">
+                                <div class="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center text-xs font-bold text-white mt-0.5">5</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-semibold text-white text-xs mb-1 leading-tight">Visual Feedback</h4>
+                                    <p class="text-[11px] text-neutral-400 leading-snug">Green light confirms successful scan</p>
+                        </div>
+                    </div>
+                        </div>
+                        
+                        <div class="rounded-lg border border-white/10 bg-white/5 p-3.5 hover:bg-white/10 transition hover:border-accent/30 group">
+                            <div class="flex items-start gap-2.5">
+                                <div class="flex-shrink-0 w-7 h-7 rounded-full bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center text-xs font-bold text-white mt-0.5">6</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-semibold text-white text-xs mb-1 leading-tight">Cloud Sync & ERP</h4>
+                                    <p class="text-[11px] text-neutral-400 leading-snug">Data synced to cloud and ERP system</p>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- My Role -->
+            <section class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center text-xl">👨‍💻</div>
+                    <h2 class="text-2xl font-semibold tracking-tight text-white">My Role & Responsibilities</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-5 border-l-4 border-l-accent">
+                        <h4 class="font-semibold text-white mb-2">Hardware Architecture</h4>
+                        <p class="text-sm text-neutral-300">Selected and evaluated cameras, compute units, and sensors. Calculated resolution requirements for reliable barcode detection. Managed vendor partnerships achieving 50% cost reduction.</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-5 border-l-4 border-l-accent">
+                        <h4 class="font-semibold text-white mb-2">Onsite Deployment</h4>
+                        <p class="text-sm text-neutral-300">Led installations at multiple US manufacturing facilities. Coordinated with facility teams on mounting, networking, and environmental requirements. Ensured standards compliance.</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-5 border-l-4 border-l-accent">
+                        <h4 class="font-semibold text-white mb-2">System Integration</h4>
+                        <p class="text-sm text-neutral-300">Designed edge-to-cloud pipeline architecture. Integrated with client ERP systems for metadata matching. Built APIs and webhooks for real-time data flow.</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-5 border-l-4 border-l-accent">
+                        <h4 class="font-semibold text-white mb-2">Performance Optimization</h4>
+                        <p class="text-sm text-neutral-300">Optimized processing pipeline with parallel workers. Implemented memory management and failsafes. Migrated from WiFi to Ethernet for stability. Reduced logging overhead.</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-5 border-l-4 border-l-accent">
+                        <h4 class="font-semibold text-white mb-2">Production Readiness</h4>
+                        <p class="text-sm text-neutral-300">Established monitoring with Scalyr. Created health check systems and alerting. Documented SOPs for operations team.</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-5 border-l-4 border-l-accent">
+                        <h4 class="font-semibold text-white mb-2">Cross-Functional Leadership</h4>
+                        <p class="text-sm text-neutral-300">Primary technical contact for client stakeholders. Coordinated with AI engineers, platform team, and project management. Trained warehouse associates on new workflows.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Stack -->
+            <section class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center text-xl">🛠️</div>
+                    <h2 class="text-2xl font-semibold tracking-tight text-white">Technical Stack</h2>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">Computer Vision</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">Python/Golang</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">Docker</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">Kubernetes</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">Message Queue</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">Edge Computing</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">AWS S3</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">REST APIs</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">IoT Edge Computing</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">Ubuntu Linux</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">CI/CD</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">Scalyr</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">ERP Integration</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">Barcode OCR</span>
+                    <span class="px-4 py-2 rounded-full bg-accent/20 text-accent text-sm font-medium border border-accent/30">Microservices</span>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-neutral-950/70">
+        <div class="mx-auto max-w-7xl px-6 py-6 text-sm text-neutral-400">
+            <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+                <div>
+                    <div class="font-semibold text-neutral-200">Get in touch</div>
+                    <div class="mt-1 text-xs">📧 <a href="mailto:shantanoopatel@gmail.com" class="hover:text-accent">shantanoopatel@gmail.com</a></div>
+                </div>
+                <div class="flex gap-3">
+                    <a href="https://www.linkedin.com/in/patelshantanoo" target="_blank" rel="noopener" class="focus-ring inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/10">LinkedIn</a>
+                    <a href="https://github.com/xhan0o" target="_blank" rel="noopener" class="focus-ring inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/10">GitHub</a>
+                </div>
+            </div>
+            <div class="mt-4 text-xs">© <span id="year"></span> Shantanu Patel</div>
+        </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Enterprise Shipment Visibility System",
+      "description": "Computer vision-powered real-time tracking for manufacturing logistics",
+      "author": {
+        "@type": "Person",
+        "name": "Shantanu Patel",
+        "email": "shantanoopatel@gmail.com",
+        "url": "https://shan0o.com"
+      },
+      "datePublished": "2023",
+      "dateModified": "2023",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://shan0o.com/Projects/ShipmentObservability/shipment_visibility.html"
+      },
+      "keywords": ["computer vision", "edge computing", "IoT", "barcode detection", "shipment tracking", "logistics", "supply chain"],
+      "about": {
+        "@type": "Thing",
+        "name": "Computer Vision Powered Logistics Tracking",
+        "description": "Patent-pending system for real-time shipment visibility using computer vision and edge computing"
+      },
+      "citation": {
+        "@type": "CreativeWork",
+        "name": "US20230060506A1",
+        "description": "Patent: US20230060506A1"
+      }
+    }
+    </script>
+</body>
+</html>

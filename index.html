@@ -1,1260 +1,401 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-    <title>Shantanu Patel - Product Leader & Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-primary: #0A0E27;
-            --bg-secondary: #10162F;
-            --surface: #161D3A;
-            --accent-primary: #00D9FF;
-            --accent-secondary: #8B5CF6;
-            --text-primary: #E4E8F0;
-            --text-secondary: #9CA3B8;
-            --text-muted: #5E6578;
-            --border: rgba(0, 217, 255, 0.1);
-            --glow: rgba(0, 217, 255, 0.2);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(0, 217, 255, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .layout {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 320px;
-            background: var(--bg-secondary);
-            border-right: 1px solid var(--border);
-            position: fixed;
-            height: 100vh;
-            overflow-y: auto;
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .sidebar::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .sidebar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .sidebar::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 2px;
-        }
-
-        .sidebar-content {
-            padding: 40px 30px;
-            flex: 1;
-        }
-
-        .profile {
-            margin-bottom: 40px;
-        }
-
-        .status-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .status-indicator::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            background: var(--accent-primary);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--accent-primary); }
-            50% { opacity: 0.8; box-shadow: 0 0 0 4px transparent; }
-        }
-
-        .profile h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .profile .tagline {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .profile .tagline span {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--accent-primary);
-        }
-
-        /* Navigation */
-        .nav {
-            margin-bottom: 40px;
-        }
-
-        .nav-links {
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-bottom: 4px;
-        }
-
-        .nav-links a {
-            display: block;
-            padding: 10px 16px;
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            border-left: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a::before {
-            content: '//';
-            font-family: 'JetBrains Mono', monospace;
-            margin-right: 8px;
-            color: var(--text-muted);
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent-primary);
-            border-left-color: var(--accent-primary);
-            background: rgba(0, 217, 255, 0.05);
-        }
-
-        .nav-links a:hover::before,
-        .nav-links a.active::before {
-            color: var(--accent-primary);
-        }
-
-        /* Contact Info */
-        .contact-info {
-            margin-bottom: 40px;
-            padding: 20px;
-            background: rgba(0, 217, 255, 0.03);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-        }
-
-        .contact-info h3 {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-primary);
-            margin-bottom: 15px;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 10px;
-            font-size: 0.85rem;
-        }
-
-        .contact-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .contact-icon {
-            color: var(--text-muted);
-            margin-top: 2px;
-            flex-shrink: 0;
-        }
-
-        .contact-item a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            word-break: break-word;
-        }
-
-        .contact-item a:hover {
-            color: var(--accent-primary);
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 217, 255, 0.05);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-        }
-
-        .social-links a:hover {
-            background: rgba(0, 217, 255, 0.1);
-            border-color: var(--accent-primary);
-            color: var(--accent-primary);
-            transform: translateY(-2px);
-        }
-
-        /* Main Content */
-        .main-wrapper {
-            margin-left: 320px;
-            margin-right: 300px;
-            flex: 1;
-            position: relative;
-            z-index: 1;
-        }
-
-        .main-content {
-            max-width: 900px;
-            padding: 50px 60px;
-        }
-
-        /* Right Sidebar */
-        .right-sidebar {
-            width: 300px;
-            background: var(--bg-secondary);
-            border-left: 1px solid var(--border);
-            position: fixed;
-            right: 0;
-            top: 0;
-            height: 100vh;
-            overflow-y: auto;
-            z-index: 100;
-            padding: 40px 25px;
-        }
-
-        .right-sidebar::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .right-sidebar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .right-sidebar::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 2px;
-        }
-
-        .right-sidebar h3 {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-primary);
-            margin-bottom: 20px;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .sidebar-skill-category {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .sidebar-skill-category:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .sidebar-skill-category h4 {
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .sidebar-skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .skill-tag {
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            background: rgba(0, 217, 255, 0.08);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: rgba(0, 217, 255, 0.15);
-            border-color: var(--accent-primary);
-            color: var(--accent-primary);
-        }
-
-        .section {
-            margin-bottom: 60px;
-        }
-
-        .section-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--accent-primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
-
-        .section h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            letter-spacing: -0.5px;
-            margin-bottom: 30px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .expand-all-controls {
-            display: flex;
-            gap: 10px;
-        }
-
-        .expand-btn {
-            padding: 8px 16px;
-            background: rgba(0, 217, 255, 0.1);
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            cursor: pointer;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .expand-btn:hover {
-            background: rgba(0, 217, 255, 0.2);
-            border-color: var(--accent-primary);
-            color: var(--accent-primary);
-        }
-
-        .section p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        /* Divider */
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border), transparent);
-            margin: 60px 0;
-        }
-
-        /* Experience Cards */
-        .experience-card {
-            margin-bottom: 40px;
-            background: rgba(0, 217, 255, 0.02);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .experience-card:hover {
-            background: rgba(0, 217, 255, 0.04);
-            border-color: rgba(0, 217, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .experience-card-header {
-            padding: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .experience-card-header:hover {
-            background: rgba(0, 217, 255, 0.05);
-        }
-
-        .experience-card-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-            padding: 0 30px;
-        }
-
-        .experience-card-content.expanded {
-            max-height: 2000px;
-            padding: 0 30px 30px 30px;
-            transition: max-height 0.4s ease-in, padding 0.4s ease-in;
-        }
-
-        .expand-icon {
-            color: var(--accent-primary);
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-            user-select: none;
-        }
-
-        .expand-icon.expanded {
-            transform: rotate(180deg);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .experience-title {
-            flex: 1;
-        }
-
-        .experience-title h3 {
-            font-size: 1.3rem;
-            color: var(--text-primary);
-            margin-bottom: 5px;
-        }
-
-        .company {
-            font-size: 1rem;
-            color: var(--accent-primary);
-            font-weight: 500;
-        }
-
-        .experience-meta {
-            text-align: right;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .job-description {
-            font-style: italic;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-        }
-
-        .achievements {
-            list-style: none;
-        }
-
-        .achievements li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 12px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .achievements li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--accent-primary);
-            font-size: 1.2rem;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-category {
-            padding: 25px;
-            background: rgba(0, 217, 255, 0.02);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover {
-            background: rgba(0, 217, 255, 0.04);
-            border-color: rgba(0, 217, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .skill-category h3 {
-            font-size: 1rem;
-            color: var(--accent-primary);
-            margin-bottom: 15px;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 500;
-        }
-
-        .skill-list {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-
-        /* Project Cards */
-        .project-card {
-            margin-bottom: 30px;
-            background: rgba(0, 217, 255, 0.02);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .project-card:hover {
-            background: rgba(0, 217, 255, 0.04);
-            border-color: rgba(0, 217, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .project-card-header {
-            padding: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .project-card-header:hover {
-            background: rgba(0, 217, 255, 0.05);
-        }
-
-        .project-card-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-            padding: 0 30px;
-        }
-
-        .project-card-content.expanded {
-            max-height: 1000px;
-            padding: 0 30px 30px 30px;
-            transition: max-height 0.4s ease-in, padding 0.4s ease-in;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .project-header h3 {
-            font-size: 1.2rem;
-            color: var(--text-primary);
-            flex: 1;
-        }
-
-        .project-year {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .project-description {
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* Education */
-        .education-card {
-            padding: 25px;
-            background: rgba(0, 217, 255, 0.02);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-        }
-
-        .education-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .education-header h3 {
-            font-size: 1.1rem;
-            color: var(--text-primary);
-        }
-
-        .education-meta {
-            text-align: right;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .school {
-            color: var(--text-secondary);
-            margin-bottom: 5px;
-        }
-
-        /* Responsive */
-        @media (max-width: 1400px) {
-            .right-sidebar {
-                width: 260px;
-            }
-            
-            .main-wrapper {
-                margin-right: 260px;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .sidebar {
-                width: 280px;
-            }
-            
-            .main-wrapper {
-                margin-left: 280px;
-                margin-right: 0;
-            }
-            
-            .main-content {
-                padding: 40px 40px;
-            }
-
-            .right-sidebar {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-            }
-            
-            .main-wrapper {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            
-            .main-content {
-                padding: 30px 20px;
-            }
-            
-            .section h2 {
-                font-size: 1.5rem;
-            }
-            
-            .experience-header {
-                flex-direction: column;
-            }
-            
-            .experience-meta {
-                text-align: left;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .right-sidebar {
-                display: none;
-            }
-        }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Fade in animation */
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 0.6s ease-in forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .section:nth-child(1) { animation-delay: 0.1s; }
-        .section:nth-child(2) { animation-delay: 0.2s; }
-        .section:nth-child(3) { animation-delay: 0.3s; }
-    </style>
-</head>
-<body>
-    <div class="layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-content">
-                <div class="profile">
-                    <div class="status-indicator">Available for opportunities</div>
-                    <h1>Shantanu Patel</h1>
-                    <p class="tagline">
-                        Product Leader building <span>0-to-1</span> experiences that customers love. 
-                        8+ years driving growth through hypothesis-driven discovery and technical depth.
-                    </p>
-                </div>
-
-                <nav class="nav">
-                    <ul class="nav-links">
-                        <li><a href="#about" class="active">About</a></li>
-                        <li><a href="#experience">Experience</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#education">Education</a></li>
-                        <li><a href="#community">Community</a></li>
-                    </ul>
-                </nav>
-
-                <div class="contact-info">
-                    <h3>// connect</h3>
-                    <div class="contact-item">
-                        <span class="contact-icon">📧</span>
-                        <a href="mailto:shantanoopatel@gmail.com">shantanoopatel@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📱</span>
-                        <span>607-338-8486</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <span>California, US</span>
-                    </div>
-                </div>
-
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/patelshantanoo" target="_blank" title="LinkedIn">in</a>
-                    <a href="https://github.com/xhan0o" target="_blank" title="GitHub">gh</a>
-                    <a href="resume.html" target="_blank" title="Resume">📄</a>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <div class="main-wrapper">
-            <main class="main-content">
-                <!-- About Section -->
-                <section id="about" class="section fade-in">
-                    <div class="section-label">// introduction</div>
-                    <h2>About Me</h2>
-                    <p>
-                        Product leader with <strong>8+ years</strong> driving 0-to-1 growth and enterprise customer success across AI-powered supply chain and IoT solutions. Currently leading product strategy at Hopstack with <strong>95%+ retention</strong> and <strong>4x revenue expansion</strong> through hypothesis-driven discovery and rapid iteration.
-                    </p>
-                    <p>
-                        Strong technical foundation (firmware, IoT, AI/ML) enables deep collaboration with engineering teams while maintaining focus on customer outcomes and business impact. Proven track record reducing time-to-value by 80%, building cross-functional teams from scratch, and translating complex technical capabilities into products customers love.
-                    </p>
-                </section>
-
-                <div class="divider"></div>
-
-                <!-- Experience Section -->
-                <section id="experience" class="section fade-in">
-                    <div class="section-label">// professional.experience</div>
-                    <div class="section-header">
-                        <h2>Work History</h2>
-                        <div class="expand-all-controls">
-                            <button class="expand-btn" onclick="expandAllExperience()">Expand All</button>
-                            <button class="expand-btn" onclick="collapseAllExperience()">Collapse All</button>
-                        </div>
-                    </div>
-
-                    <!-- Hopstack -->
-                    <div class="experience-card">
-                        <div class="experience-card-header" onclick="toggleExperience(this)">
-                            <div class="experience-header">
-                                <div class="experience-title">
-                                    <h3>Head of Product and Implementation</h3>
-                                    <div class="company">Hopstack</div>
-                                </div>
-                                <div class="experience-meta">
-                                    California, US<br>
-                                    Jun 2023 - Present
-                                </div>
-                            </div>
-                            <span class="expand-icon">▼</span>
-                        </div>
-                        <div class="experience-card-content">
-                            <div class="job-description">AI-Powered Supply Chain Solutions</div>
-                            <ul class="achievements">
-                                <li>Owned product strategy and roadmap as core leadership team member, defining 18-month vision across 3 strategic pillars: AI-powered automation, multi-warehouse orchestration, and API platform. Coordinated with founders, marketing, sales, and engineering to align product development with go-to-market execution, driving 4x revenue growth and expansion to 15+ enterprise customers</li>
-                                <li>Built product organization from 0-to-1 (Product, Implementation, Success, Support) achieving 95%+ customer retention. Transformed delivery model from 15-week implementations to 3-week rapid deployments (80% reduction), increasing feature adoption from 40% to 85% through engineering partnership and continuous customer feedback loops</li>
-                                <li>Designed systematic product discovery framework combining customer research, competitive analysis, and usage data. Implemented RICE prioritization methodology evaluating 50+ requests, enabling repeatable roadmap planning process that reduced delivery cycles 10x (6 months→6 weeks) while achieving 85% adoption through validation-driven development</li>
-                                <li>Led strategic product decisions to maximize engineering impact, regularly sunsetting low-value features and deprioritizing customer requests based on rigorous RICE evaluation. Reallocated engineering capacity to high-impact opportunities, prioritizing AI automation that achieved 70% customer adoption and improved team velocity by 40%</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- LG Electronics -->
-                    <div class="experience-card">
-                        <div class="experience-card-header" onclick="toggleExperience(this)">
-                            <div class="experience-header">
-                                <div class="experience-title">
-                                    <h3>Senior Software Engineer</h3>
-                                    <div class="company">LG Electronics</div>
-                                </div>
-                                <div class="experience-meta">
-                                    Santa Clara, CA<br>
-                                    Nov 2018 - Jun 2023
-                                </div>
-                            </div>
-                            <span class="expand-icon">▼</span>
-                        </div>
-                        <div class="experience-card-content">
-                            <div class="job-description">AI, IoT & Connected Technologies Innovation Center</div>
-                            <ul class="achievements">
-                                <li>Re-architected fleet management firmware (CAN, OBD2, GPS) achieving 16x performance improvement for high-frequency data collection, processing 10K+ data points/second across 500+ connected vehicles</li>
-                                <li>Led architecture of end-to-end autonomous retail system combining computer vision, IoT sensors, edge computing, and consumer-facing app - deployed as internal demo serving 100+ stakeholder visits, driving executive buy-in for new product initiatives</li>
-                                <li>Developed sensor fusion algorithms for autonomous shopping applications, resulting in 4 granted patents in IoT and software-hardware integration, strengthening competitive positioning</li>
-                                <li>Designed and prototyped post-quantum cryptography implementations for edge devices, evaluating performance trade-offs across ARM and x86 architectures to inform future product roadmaps</li>
-                                <li>Led technical evaluation and vendor partnerships for IoT deployments, achieving 50% hardware cost reduction through strategic component selection and volume negotiations, directly impacting product margins</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Smith Engineering -->
-                    <div class="experience-card">
-                        <div class="experience-card-header" onclick="toggleExperience(this)">
-                            <div class="experience-header">
-                                <div class="experience-title">
-                                    <h3>IoT Solutions Architect</h3>
-                                    <div class="company">Smith Engineering, PLLC</div>
-                                </div>
-                                <div class="experience-meta">
-                                    New York, NY<br>
-                                    May 2017 - May 2018
-                                </div>
-                            </div>
-                            <span class="expand-icon">▼</span>
-                        </div>
-                        <div class="experience-card-content">
-                            <ul class="achievements">
-                                <li>Developed end-to-end remote data logging solution including hardware procurement and standards-compliant enclosure design, board bring-up, backend API implementation (Flask), GCP IoT Hub integration, device health monitoring, and reporting dashboards</li>
-                                <li>Deployed IoT solutions to enterprise facilities (MERCK, MSKCC), managing on-site installations and ensuring system reliability for production environments</li>
-                                <li>Designed 30-channel data-logger architecture processing 1M+ data points hourly with JSON-based REST APIs, webhooks, and multi-cloud integrations (Azure, GCP), achieving 30% cost reduction through optimized design</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Jet Stream Electric -->
-                    <div class="experience-card">
-                        <div class="experience-card-header" onclick="toggleExperience(this)">
-                            <div class="experience-header">
-                                <div class="experience-title">
-                                    <h3>Research Engineer</h3>
-                                    <div class="company">Jet Stream Electric</div>
-                                </div>
-                                <div class="experience-meta">
-                                    Bangalore, India<br>
-                                    Mar 2014 - Jul 2016
-                                </div>
-                            </div>
-                            <span class="expand-icon">▼</span>
-                        </div>
-                        <div class="experience-card-content">
-                            <div class="job-description">Early-Stage Startup (3-person core team)</div>
-                            <ul class="achievements">
-                                <li>Developed 200W airborne wind energy prototype with kite-and-tether system, integrating flight sensors and data acquisition systems to validate power generation feasibility</li>
-                                <li>Maintained and optimized Ardupilot flight controller with custom firmware modifications, enabling real-time sensor data collection for experimental flight testing and performance analysis</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="divider"></div>
-
-                <!-- Skills Section -->
-                <section id="skills" class="section fade-in">
-                    <div class="section-label">// expertise</div>
-                    <h2>Skills & Tools</h2>
-                    
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3>Product Management</h3>
-                            <div class="skill-list">
-                                Product Strategy & Roadmapping, Customer Discovery, A/B Testing, Feature Prioritization (RICE), Jobs-to-be-Done, OKRs
-                            </div>
-                        </div>
-
-                        <div class="skill-category">
-                            <h3>Analytics & Data</h3>
-                            <div class="skill-list">
-                                SQL, Python (Pandas, NumPy), Product Analytics Tools, Statistical Analysis, Data Visualization, KPI Tracking
-                            </div>
-                        </div>
-
-                        <div class="skill-category">
-                            <h3>AI & Modern Development</h3>
-                            <div class="skill-list">
-                                Claude, OpenAI, Gemini/AI Studio, LangChain, Prompt Engineering, Vercel, V0, Replit, Cursor, Supabase, AI Agent Development
-                            </div>
-                        </div>
-
-                        <div class="skill-category">
-                            <h3>Collaboration & Prototyping</h3>
-                            <div class="skill-list">
-                                JIRA, Linear, Confluence, Figma, Miro, Agile/Scrum, MVP Development, Rapid Prototyping
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="divider"></div>
-
-                <!-- Projects Section -->
-                <section id="projects" class="section fade-in">
-                    <div class="section-label">// featured.work</div>
-                    <div class="section-header">
-                        <h2>Key Projects</h2>
-                        <div class="expand-all-controls">
-                            <button class="expand-btn" onclick="expandAllProjects()">Expand All</button>
-                            <button class="expand-btn" onclick="collapseAllProjects()">Collapse All</button>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-card-header" onclick="toggleProject(this)">
-                            <div class="project-header">
-                                <h3>AI-Powered Warehouse Automation Tools</h3>
-                                <span class="project-year">2024</span>
-                            </div>
-                            <span class="expand-icon">▼</span>
-                        </div>
-                        <div class="project-card-content">
-                            <p class="project-description">
-                                Built AI-powered automation tools to solve operational pain points for warehouse teams: (1) Auto-cropping solution extracting 4x6 shipping labels from A4 e-commerce return labels, reducing processing time from minutes to seconds, and (2) Document parsing tool using Anthropic Claude APIs to convert scanned PDFs into standardized Hopstack WMS templates, eliminating manual data entry.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-card-header" onclick="toggleProject(this)">
-                            <div class="project-header">
-                                <h3>Pallet Visibility & Tracking System - Granted Patent</h3>
-                                <span class="project-year">2021</span>
-                            </div>
-                            <span class="expand-icon">▼</span>
-                        </div>
-                        <div class="project-card-content">
-                            <p class="project-description">
-                                Designed and deployed end-to-end software-hardware solution with camera-based barcode detection and cloud-based tracking system for a major logistics company. Published patent for shipment visibility technology.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-card-header" onclick="toggleProject(this)">
-                            <div class="project-header">
-                                <h3>Robotic ARM Implementation - YC Startup Consulting</h3>
-                                <span class="project-year">2023</span>
-                            </div>
-                            <span class="expand-icon">▼</span>
-                        </div>
-                        <div class="project-card-content">
-                            <p class="project-description">
-                                Identified product gaps, defined implementation SOPs, trained internal team members, and developed scalable deployment strategies for Y-Combinator backed robotics startup.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="divider"></div>
-
-                <!-- Education Section -->
-                <section id="education" class="section fade-in">
-                    <div class="section-label">// education</div>
-                    <h2>Academic Background</h2>
-                    
-                    <div class="education-card">
-                        <div class="education-header">
-                            <div>
-                                <h3>Master of Science, Computer Engineering</h3>
-                                <div class="school">State University of New York at Binghamton</div>
-                            </div>
-                            <div class="education-meta">
-                                GPA: 3.56<br>
-                                Aug 2016 - May 2018
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="education-card" style="margin-top: 20px;">
-                        <div class="education-header">
-                            <div>
-                                <h3>Bachelor of Technology (B.Tech.), Electrical, Electronics and Communications Engineering</h3>
-                                <div class="school">Charotar University of Science and Technology (CHARUSAT)</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="divider"></div>
-
-                <!-- Open Source & Community Section -->
-                <section id="community" class="section fade-in">
-                    <div class="section-label">// open.source & community</div>
-                    <h2>Community Involvement</h2>
-                    <p>
-                        Contributed to Pine64 watch project, demonstrated projects at MakerFest, Museum of Mathematics Hackathon, HackBU - major league hacking events
-                    </p>
-                </section>
-
-            </main>
-        </div>
-
-        <!-- Right Sidebar -->
-        <aside class="right-sidebar">
-            <h3>// skills & tools</h3>
-            
-            <div class="sidebar-skill-category">
-                <h4>Product Management</h4>
-                <div class="sidebar-skill-tags">
-                    <span class="skill-tag">RICE</span>
-                    <span class="skill-tag">OKRs</span>
-                    <span class="skill-tag">A/B Testing</span>
-                    <span class="skill-tag">Customer Discovery</span>
-                    <span class="skill-tag">Jobs-to-be-Done</span>
-                    <span class="skill-tag">Roadmapping</span>
-                </div>
-            </div>
-
-            <div class="sidebar-skill-category">
-                <h4>Analytics & Data</h4>
-                <div class="sidebar-skill-tags">
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Pandas</span>
-                    <span class="skill-tag">NumPy</span>
-                    <span class="skill-tag">Analytics Tools</span>
-                    <span class="skill-tag">Data Viz</span>
-                    <span class="skill-tag">KPI Tracking</span>
-                </div>
-            </div>
-
-            <div class="sidebar-skill-category">
-                <h4>AI & Modern Development</h4>
-                <div class="sidebar-skill-tags">
-                    <span class="skill-tag">Claude</span>
-                    <span class="skill-tag">OpenAI</span>
-                    <span class="skill-tag">Gemini</span>
-                    <span class="skill-tag">LangChain</span>
-                    <span class="skill-tag">Prompt Engineering</span>
-                    <span class="skill-tag">Vercel</span>
-                    <span class="skill-tag">Cursor</span>
-                    <span class="skill-tag">Supabase</span>
-                </div>
-            </div>
-
-            <div class="sidebar-skill-category">
-                <h4>Collaboration & Prototyping</h4>
-                <div class="sidebar-skill-tags">
-                    <span class="skill-tag">JIRA</span>
-                    <span class="skill-tag">Linear</span>
-                    <span class="skill-tag">Confluence</span>
-                    <span class="skill-tag">Figma</span>
-                    <span class="skill-tag">Miro</span>
-                    <span class="skill-tag">Agile/Scrum</span>
-                    <span class="skill-tag">MVP Development</span>
-                </div>
-            </div>
-
-            <div class="sidebar-skill-category">
-                <h4>Technical Foundation</h4>
-                <div class="sidebar-skill-tags">
-                    <span class="skill-tag">C/C++</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">IoT</span>
-                    <span class="skill-tag">Firmware</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">GCP</span>
-                    <span class="skill-tag">REST APIs</span>
-                </div>
-            </div>
-        </aside>
-    </div>
+    <title>Shantanu Patel – AI Product Manager & Forward Deployed Engineer</title>
+    <meta name="description" content="AI Product Manager & Forward Deployed Engineer. Building 0-to-1 AI solutions for supply chain and logistics with 8+ years of product-led growth, technical implementation, and customer-facing engineering.">
+    <meta name="author" content="Shantanu Patel">
+    <meta name="keywords" content="AI product manager, forward deployed engineer, product strategy, AI solutions, machine learning deployment, edge computing, IoT products, supply chain AI, logistics technology, technical implementation, customer-facing engineering, deployment automation, AI-powered systems, real-time monitoring, enterprise implementation, 0-to-1 product development">
+    <link rel="canonical" href="https://shan0o.com/">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Shantanu Patel – AI Product Manager & Forward Deployed Engineer">
+    <meta property="og:description" content="AI Product Manager & Forward Deployed Engineer. Building 0-to-1 AI solutions for supply chain and logistics with 8+ years of product-led growth, technical implementation, and customer-facing engineering.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shan0o.com/">
+    <meta property="og:site_name" content="Shantanu Patel Portfolio">
+    
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
     <script>
-        // Smooth scroll and active nav highlighting
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Update active state
-                    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-                    this.classList.add('active');
-                }
-            });
+      window.tailwind = window.tailwind || {};
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              accent: {
+                DEFAULT: '#00D9FF',
+                soft: '#67E8F9'
+              }
+            },
+            fontFamily: {
+              sans: ["Inter", "-apple-system", "system-ui", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"],
+              mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "monospace"]
+            },
+            boxShadow: {
+              glow: '0 0 0 1px rgba(0,217,255,0.25), 0 8px 30px rgba(0,217,255,0.08)'
+            }
+          }
+        }
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      .backdrop-blur-safari { -webkit-backdrop-filter: saturate(180%) blur(12px); backdrop-filter: saturate(180%) blur(12px); }
+      .focus-ring:focus-visible { outline: none; box-shadow: 0 0 0 2px rgba(0,217,255,0.6); }
+      .details-compact { margin: 0; }
+      .details-compact summary { padding: 0.75rem 0; }
+      .details-compact[open] > summary { margin-bottom: 0.5rem; }
+      
+      /* Breathing glow effect */
+      .sparkle-text {
+        display: inline-block;
+        animation: breathing-glow 2.5s ease-in-out infinite;
+      }
+      
+      @keyframes breathing-glow {
+        0%, 100% {
+          text-shadow: 0 0 5px rgba(0,217,255,0.5), 0 0 10px rgba(0,217,255,0.3);
+        }
+        50% {
+          text-shadow: 0 0 10px rgba(0,217,255,0.8), 0 0 20px rgba(0,217,255,0.5), 0 0 30px rgba(0,217,255,0.3);
+        }
+      }
+    </style>
+</head>
+<body class="bg-neutral-950 text-neutral-100 antialiased selection:bg-accent/20 selection:text-accent">
+    <!-- Top Navigation -->
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/60 backdrop-blur-safari">
+        <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+            <a href="/index.html" class="font-semibold tracking-tight text-neutral-200 hover:text-white focus-ring">Shantanu Patel</a>
+            <nav aria-label="Primary" class="hidden md:flex items-center gap-6 text-sm text-neutral-300">
+                <a href="#about" class="hover:text-white focus-ring">About</a>
+                <a href="#experience" class="hover:text-white focus-ring">Experience</a>
+                <a href="#projects" class="hover:text-white focus-ring">Projects</a>
+                <a href="#skills" class="hover:text-white focus-ring">Skills</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <a href="/resume.html" class="focus-ring inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/10" target="_blank" rel="noopener">Resume</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section - Compact -->
+    <section class="border-b border-white/10">
+        <div class="mx-auto max-w-7xl px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Main Intro -->
+                <div class="md:col-span-2 space-y-3">
+                    <p class="text-xs font-mono uppercase tracking-widest text-accent">Available for opportunities</p>
+                    <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-white">Shantanu Patel</h1>
+                    <p class="text-neutral-300">Building <span class="text-accent font-semibold">0-to-1</span> AI solutions. 8+ years driving product-led growth through technical implementation, customer-facing engineering, and measurable outcomes.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-medium border border-accent/30">AI Product Manager</span>
+                        <span class="px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-medium border border-accent/30">Forward Deployed Engineer</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <a href="mailto:shantanoopatel@gmail.com" class="focus-ring inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-200 hover:bg-white/10">Email</a>
+                        <a href="https://www.linkedin.com/in/patelshantanoo" target="_blank" rel="noopener" class="focus-ring inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-200 hover:bg-white/10">LinkedIn</a>
+                        <a href="https://github.com/xhan0o" target="_blank" rel="noopener" class="focus-ring inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-200 hover:bg-white/10">GitHub</a>
+                        <a href="/resume.html" target="_blank" rel="noopener" class="focus-ring inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-200 hover:bg-white/10">Resume</a>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="space-y-3">
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                        <div class="text-xs text-accent font-mono mb-2">Current</div>
+                        <p class="text-sm text-neutral-200"><strong>Hopstack</strong></p>
+                        <p class="text-xs text-neutral-400">Head of Product & Implementation</p>
+                        <p class="text-xs text-accent mt-2">80% Implementation time reduction • 4x revenue growth</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                        <div class="text-xs text-accent font-mono mb-2">Highlights</div>
+                        <ul class="text-xs text-neutral-300 space-y-1">
+                            <li>• 4 patents (IoT/AI)</li>
+                            <li>• <a href="https://utils.shan0o.com" target="_blank" rel="noopener" class="text-accent hover:text-accent-soft transition-colors">Warehouse Utilities → <span class="sparkle-text">utils.shan0o.com</span></a></li>
+                            <li>• <a href="https://ipaas.shan0o.com" target="_blank" rel="noopener" class="text-accent hover:text-accent-soft transition-colors">Integration Platform as a Service → <span class="sparkle-text">ipaas.shan0o.com</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="mx-auto max-w-7xl px-6 py-8">
+        <!-- About & Featured Project Side by Side -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div id="about" class="md:col-span-2 scroll-mt-20">
+                <div class="text-xs font-mono uppercase tracking-widest text-accent mb-3">About Me</div>
+                <p class="text-sm text-neutral-300 leading-relaxed mb-4">Product leader with 8+ years driving 0-to-1 growth across AI-powered supply chain and IoT solutions. Strong technical foundation (firmware, IoT, AI/ML) enables deep collaboration with engineering teams while maintaining focus on customer outcomes.</p>
+                <p class="text-sm text-neutral-300 leading-relaxed">Proven track record <strong class="text-neutral-100">reducing time-to-value by 80%</strong>, building cross-functional teams from scratch, and translating complex technical capabilities into products customers love.</p>
+            </div>
+
+            <!-- Featured Project -->
+            <div class="rounded-lg border border-accent/30 bg-gradient-to-br from-white/10 to-white/5 p-4 shadow-glow">
+                <div class="text-xs font-mono uppercase tracking-widest text-accent mb-3">Featured</div>
+                <h3 class="text-sm font-semibold text-white mb-2">Pallet Visibility & Tracking</h3>
+                <p class="text-xs text-neutral-300 mb-3">Patented camera-based barcode detection system for real-time shipment visibility with edge computing and cloud integration.</p>
+                <a href="/Projects/ShipmentObservability/shipment_visibility.html" class="inline-flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-soft">
+                    <span class="sparkle-text">Learn more</span> →
+                </a>
+            </div>
+        </div>
+
+        <!-- Experience Section - Compact Grid -->
+        <div id="experience" class="mb-8 scroll-mt-20">
+            <div class="text-xs font-mono uppercase tracking-widest text-accent mb-4">Experience</div>
+            <div class="space-y-3">
+                <!-- Hopstack -->
+                <details class="details-compact group rounded-lg border border-white/10 bg-white/5 p-4 hover:bg-white/[0.08] transition">
+                    <summary class="cursor-pointer font-semibold text-white flex justify-between items-start hover:text-accent transition">
+                        <div>
+                            <div class="text-sm">Head of Product & Implementation</div>
+                            <div class="text-xs text-accent font-normal">Hopstack</div>
+                        </div>
+                        <div class="text-xs text-neutral-400 text-right">2023 - Now</div>
+                    </summary>
+                    <div class="text-xs text-neutral-300 space-y-2 mt-2">
+                        <p><strong class="text-neutral-100">AI-Powered Supply Chain Solutions</strong></p>
+                        <ul class="space-y-1.5 pl-3">
+                            <li>▹ Owned product strategy driving 4x revenue growth to 15+ enterprise customers</li>
+                            <li>▹ Built product org from 0-to-1 achieving 95%+ retention, 80% implementation time reduction</li>
+                            <li>▹ Implemented RICE prioritization evaluating 50+ requests, reducing delivery cycles 10x</li>
+                            <li>▹ Led AI automation achieving 70% adoption while improving team velocity 40%</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- LG Electronics -->
+                <details class="details-compact group rounded-lg border border-white/10 bg-white/5 p-4 hover:bg-white/[0.08] transition">
+                    <summary class="cursor-pointer font-semibold text-white flex justify-between items-start hover:text-accent transition">
+                        <div>
+                            <div class="text-sm">Senior Software Engineer</div>
+                            <div class="text-xs text-accent font-normal">LG Electronics</div>
+                        </div>
+                        <div class="text-xs text-neutral-400 text-right">2018 - 2023</div>
+                    </summary>
+                    <div class="text-xs text-neutral-300 space-y-2 mt-2">
+                        <p><strong class="text-neutral-100">AI, IoT & Connected Technologies</strong></p>
+                        <ul class="space-y-1.5 pl-3">
+                            <li>▹ Re-architected fleet management firmware achieving 16x performance improvement for 500+ vehicles</li>
+                            <li>▹ Led autonomous retail system combining computer vision, IoT, and edge computing</li>
+                            <li>▹ Developed sensor fusion algorithms resulting in 4 patents</li>
+                            <li>▹ Achieved 50% hardware cost reduction through strategic vendor partnerships</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- Smith Engineering -->
+                <details class="details-compact group rounded-lg border border-white/10 bg-white/5 p-4 hover:bg-white/[0.08] transition">
+                    <summary class="cursor-pointer font-semibold text-white flex justify-between items-start hover:text-accent transition">
+                        <div>
+                            <div class="text-sm">IoT Solutions Architect</div>
+                            <div class="text-xs text-accent font-normal">Smith Engineering</div>
+                        </div>
+                        <div class="text-xs text-neutral-400 text-right">2017 - 2018</div>
+                    </summary>
+                    <div class="text-xs text-neutral-300 space-y-2 mt-2">
+                        <ul class="space-y-1.5 pl-3">
+                            <li>▹ End-to-end IoT logging solution with hardware, backend API, and cloud integration</li>
+                            <li>▹ Deployed solutions to enterprise facilities (MERCK, MSKCC)</li>
+                            <li>▹ 30-channel data logger processing 1M+ points hourly, 30% cost reduction</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- Jet Stream -->
+                <details class="details-compact group rounded-lg border border-white/10 bg-white/5 p-4 hover:bg-white/[0.08] transition">
+                    <summary class="cursor-pointer font-semibold text-white flex justify-between items-start hover:text-accent transition">
+                        <div>
+                            <div class="text-sm">Research Engineer</div>
+                            <div class="text-xs text-accent font-normal">Jet Stream Electric</div>
+                        </div>
+                        <div class="text-xs text-neutral-400 text-right">2014 - 2016</div>
+                    </summary>
+                    <div class="text-xs text-neutral-300 space-y-2 mt-2">
+                        <p><strong class="text-neutral-100">Early-Stage Startup (3-person team)</strong></p>
+                        <ul class="space-y-1.5 pl-3">
+                            <li>▹ 200W airborne wind energy prototype with kite-tether system</li>
+                            <li>▹ Ardupilot flight controller optimization with custom firmware</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Projects Section - Grid Layout -->
+        <div id="projects" class="mb-8 scroll-mt-20">
+            <div class="text-xs font-mono uppercase tracking-widest text-accent mb-4">Projects</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- AI Warehouse Tools -->
+                <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                    <h3 class="font-semibold text-white mb-2">AI Warehouse Automation</h3>
+                    <p class="text-xs text-neutral-300 mb-3">Auto-cropping solution for shipping labels (4x6 from A4) and document parsing using Claude APIs to convert scanned PDFs into standardized WMS templates.</p>
+                    <p class="text-xs text-neutral-400">2024</p>
+                </div>
+
+                <!-- Pallet Visibility -->
+                <div class="rounded-lg border border-accent/20 bg-gradient-to-br from-white/10 to-white/5 p-4">
+                    <h3 class="font-semibold text-white mb-2">Pallet Visibility System</h3>
+                    <p class="text-xs text-neutral-300 mb-3">End-to-end camera-based barcode detection and cloud-based tracking for major logistics company. <strong>Patent</strong> for shipment visibility technology.</p>
+                    <a href="/Projects/ShipmentObservability/shipment_visibility.html" class="inline-flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-soft"><span class="sparkle-text">Learn more</span> →</a>
+                </div>
+
+                <!-- Robotic ARM -->
+                <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                    <h3 class="font-semibold text-white mb-2">Robotic ARM Implementation</h3>
+                    <p class="text-xs text-neutral-300 mb-3">Product strategy, SOPs, and deployment scaling for Y-Combinator backed robotics startup. Identified gaps and trained internal teams.</p>
+                    <p class="text-xs text-neutral-400">2023 · YC Consulting</p>
+                </div>
+
+                <!-- iPaaS -->
+                <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                    <h3 class="font-semibold text-white mb-2">Integration Platform (iPaaS)</h3>
+                    <p class="text-xs text-neutral-300 mb-3">Enterprise data sync across e-commerce, ERP, shipping. Temporal workflows, no-code configuration, real-time monitoring dashboards.</p>
+                    <a href="https://ipaas.shan0o.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-soft">Visit <span class="sparkle-text">ipaas.shan0o.com</span> →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills & Education Side by Side -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Skills -->
+            <div id="skills" class="scroll-mt-20">
+                <div class="text-xs font-mono uppercase tracking-widest text-accent mb-4">Skills</div>
+                <div class="space-y-3">
+                    <div>
+                        <div class="text-xs font-semibold text-accent mb-1">Product Management</div>
+                        <p class="text-xs text-neutral-300">Product Strategy, Roadmapping, Customer Discovery, RICE Prioritization, OKRs, A/B Testing</p>
+                    </div>
+                    <div>
+                        <div class="text-xs font-semibold text-accent mb-1">AI & Development</div>
+                        <p class="text-xs text-neutral-300">Claude, OpenAI, Gemini, LangChain, Prompt Engineering, Vercel, Supabase, Cursor, Agents</p>
+                    </div>
+                    <div>
+                        <div class="text-xs font-semibold text-accent mb-1">Analytics & Data</div>
+                        <p class="text-xs text-neutral-300">SQL, Python (Pandas, NumPy), Statistical Analysis, Data Visualization, KPI Tracking</p>
+                    </div>
+                    <div>
+                        <div class="text-xs font-semibold text-accent mb-1">Technical</div>
+                        <p class="text-xs text-neutral-300">Firmware, IoT, Computer Vision, Edge Computing, Post-Quantum Cryptography</p>
+                    </div>
+                    <div>
+                        <div class="text-xs font-semibold text-accent mb-1">Collaboration</div>
+                        <p class="text-xs text-neutral-300">JIRA, Linear, Confluence, Figma, Miro, Agile, Rapid Prototyping</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div id="education" class="scroll-mt-20">
+                <div class="text-xs font-mono uppercase tracking-widest text-accent mb-4">Education</div>
+                <div class="space-y-3">
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                        <div class="font-semibold text-sm">M.S. Computer Engineering</div>
+                        <p class="text-xs text-neutral-300">State University of New York at Binghamton</p>
+                        <p class="text-xs text-neutral-400 mt-1">GPA: 3.56 • Aug 2016 - May 2018</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                        <div class="font-semibold text-sm">B.Tech. Electrical Engineering</div>
+                        <p class="text-xs text-neutral-300">Charotar University of Science and Technology</p>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-white/5 p-4">
+                        <div class="text-xs font-mono text-accent mb-2">Community</div>
+                        <p class="text-xs text-neutral-300">Pine64, MakerFest, Museum of Mathematics Hackathon, HackBU (MLH)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-neutral-950/70 mt-12">
+        <div class="mx-auto max-w-7xl px-6 py-6 text-sm text-neutral-400">
+            <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+                <div>
+                    <div class="font-semibold text-neutral-200">Get in touch</div>
+                    <div class="mt-1 text-xs">📧 <a href="mailto:shantanoopatel@gmail.com" class="hover:text-accent">shantanoopatel@gmail.com</a></div>
+                </div>
+                <div class="flex gap-3">
+                    <a href="https://www.linkedin.com/in/patelshantanoo" target="_blank" rel="noopener" class="focus-ring inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/10">LinkedIn</a>
+                    <a href="https://github.com/xhan0o" target="_blank" rel="noopener" class="focus-ring inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/10">GitHub</a>
+                </div>
+            </div>
+            <div class="mt-4 text-xs">© <span id="year"></span> Shantanu Patel</div>
+        </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Smooth active state on scroll
+      const links = Array.from(document.querySelectorAll('header nav a'));
+      const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const id = `#${e.target.id}`;
+            links.forEach(l => l.classList.toggle('text-white', l.getAttribute('href') === id));
+          }
         });
+      }, { threshold: 0.4, rootMargin: '0px 0px -20% 0px' });
+      sections.forEach(s => io.observe(s));
+    </script>
 
-        // Intersection Observer for nav highlighting on scroll
-        const sections = document.querySelectorAll('.section');
-        const navLinks = document.querySelectorAll('.nav-links a');
-
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '-100px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }, observerOptions);
-
-        sections.forEach(section => observer.observe(section));
-
-        // Expand/Collapse functionality
-        function toggleExperience(header) {
-            const card = header.closest('.experience-card');
-            const content = card.querySelector('.experience-card-content');
-            const icon = header.querySelector('.expand-icon');
-            
-            if (content.classList.contains('expanded')) {
-                content.classList.remove('expanded');
-                icon.classList.remove('expanded');
-            } else {
-                content.classList.add('expanded');
-                icon.classList.add('expanded');
-            }
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Shantanu Patel",
+        "jobTitle": ["AI Product Manager", "Forward Deployed Engineer"],
+        "description": "AI Product Manager and Forward Deployed Engineer with 8+ years building 0-to-1 AI solutions for supply chain and logistics. Expertise in technical implementation, customer-facing engineering, product strategy, and measurable outcomes.",
+        "email": "shantanoopatel@gmail.com",
+        "url": "https://shan0o.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/patelshantanoo",
+          "https://github.com/xhan0o"
+        ],
+        "knowsAbout": [
+          "Product Management",
+          "Product Strategy",
+          "AI & Machine Learning",
+          "IoT & Edge Computing",
+          "Computer Vision",
+          "Supply Chain",
+          "Logistics",
+          "Technical Leadership"
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "State University of New York at Binghamton",
+            "degree": "M.S. Computer Engineering"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Charotar University of Science and Technology",
+            "degree": "B.Tech. Electrical Engineering"
+          }
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Hopstack",
+          "jobTitle": "Head of Product & Implementation"
         }
-
-        function toggleProject(header) {
-            const card = header.closest('.project-card');
-            const content = card.querySelector('.project-card-content');
-            const icon = header.querySelector('.expand-icon');
-            
-            if (content.classList.contains('expanded')) {
-                content.classList.remove('expanded');
-                icon.classList.remove('expanded');
-            } else {
-                content.classList.add('expanded');
-                icon.classList.add('expanded');
-            }
-        }
-
-        function expandAllExperience() {
-            const experienceCards = document.querySelectorAll('#experience .experience-card');
-            experienceCards.forEach(card => {
-                const content = card.querySelector('.experience-card-content');
-                const icon = card.querySelector('.expand-icon');
-                content.classList.add('expanded');
-                icon.classList.add('expanded');
-            });
-        }
-
-        function collapseAllExperience() {
-            const experienceCards = document.querySelectorAll('#experience .experience-card');
-            experienceCards.forEach(card => {
-                const content = card.querySelector('.experience-card-content');
-                const icon = card.querySelector('.expand-icon');
-                content.classList.remove('expanded');
-                icon.classList.remove('expanded');
-            });
-        }
-
-        function expandAllProjects() {
-            const projectCards = document.querySelectorAll('#projects .project-card');
-            projectCards.forEach(card => {
-                const content = card.querySelector('.project-card-content');
-                const icon = card.querySelector('.expand-icon');
-                content.classList.add('expanded');
-                icon.classList.add('expanded');
-            });
-        }
-
-        function collapseAllProjects() {
-            const projectCards = document.querySelectorAll('#projects .project-card');
-            projectCards.forEach(card => {
-                const content = card.querySelector('.project-card-content');
-                const icon = card.querySelector('.expand-icon');
-                content.classList.remove('expanded');
-                icon.classList.remove('expanded');
-            });
-        }
+      }
+    }
     </script>
 </body>
 </html>
-
