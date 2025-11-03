@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <title>Forward Deployed Engineer Experience - Shantanu Patel</title>
+    <meta name="description" content="Technical implementation details: AI projects, problem-solving examples, and hands-on deployment work from supply chain and IoT systems.">
+    <meta name="author" content="Shantanu Patel">
+    <link rel="canonical" href="https://shan0o.com/fde-experience.html">
+    
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <script>
+      window.tailwind = window.tailwind || {};
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              accent: {
+                DEFAULT: '#00D9FF',
+                soft: '#67E8F9'
+              }
+            },
+            fontFamily: {
+              sans: ["Inter", "-apple-system", "system-ui", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"],
+              mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "monospace"]
+            },
+            boxShadow: {
+              glow: '0 0 0 1px rgba(0,217,255,0.25), 0 8px 30px rgba(0,217,255,0.08)'
+            }
+          }
+        }
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      .backdrop-blur-safari { -webkit-backdrop-filter: saturate(180%) blur(12px); backdrop-filter: saturate(180%) blur(12px); }
+      .focus-ring:focus-visible { outline: none; box-shadow: 0 0 0 2px rgba(0,217,255,0.6); }
+      .details-compact { margin: 0; }
+      .details-compact summary { padding: 0.75rem 0; }
+      .details-compact[open] > summary { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="bg-neutral-950 text-neutral-100 antialiased selection:bg-accent/20 selection:text-accent">
+    <!-- Top Navigation -->
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/60 backdrop-blur-safari">
+        <div class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between">
+            <a href="/index.html" class="font-semibold tracking-tight text-neutral-200 hover:text-white focus-ring">Shantanu Patel</a>
+            <nav aria-label="Primary" class="hidden md:flex items-center gap-6 text-sm text-neutral-300">
+                <a href="/index.html" class="hover:text-white focus-ring">Portfolio</a>
+                <a href="#ai-projects" class="hover:text-white focus-ring">AI Projects</a>
+                <a href="#technical-problems" class="hover:text-white focus-ring">Technical Problems</a>
+                <a href="#tools" class="hover:text-white focus-ring">Tools</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <a href="/resume.html" class="focus-ring inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/10" target="_blank" rel="noopener">Resume</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="border-b border-white/10">
+        <div class="mx-auto max-w-7xl px-6 py-8">
+            <div class="max-w-4xl">
+                <p class="text-xs font-mono uppercase tracking-widest text-accent">Technical Deep Dive</p>
+                <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-white mt-3 mb-4">Forward Deployed Engineering Work</h1>
+                <p class="text-neutral-300 text-lg">Detailed examples of AI projects, technical problem-solving, and hands-on implementation work.</p>
+                <div class="flex flex-wrap gap-2 mt-4">
+                    <span class="px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-medium border border-accent/30">500+ Demos</span>
+                    <span class="px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-medium border border-accent/30">25+ Warehouses</span>
+                    <span class="px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-medium border border-accent/30">500+ Users Trained</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="mx-auto max-w-7xl px-6 py-8">
+        <!-- AI & Automation Projects -->
+        <div id="ai-projects" class="mb-12 scroll-mt-20">
+            <div class="text-xs font-mono uppercase tracking-widest text-accent mb-4">AI & Automation Projects</div>
+            <p class="text-sm text-neutral-300 mb-6 max-w-3xl">AI systems built and deployed for warehouse operations at Hopstack.</p>
+            
+            <div class="space-y-6">
+                <!-- AI Document Parsing -->
+                <div class="rounded-lg border border-accent/30 bg-gradient-to-br from-white/10 to-white/5 p-6 shadow-glow">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-semibold text-white">AI-Powered Document Parsing System</h3>
+                        <span class="text-xs font-mono text-accent">Hopstack</span>
+                    </div>
+                    <p class="text-sm text-neutral-300 mb-4">Architected and deployed document parsing tool using Anthropic Claude API for automated data extraction. Processed 20+ template types with human-in-the-loop review workflow.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div class="rounded-lg bg-white/5 p-3 border border-white/10">
+                            <div class="text-2xl font-bold text-accent">85%</div>
+                            <div class="text-xs text-neutral-400">Accuracy Rate</div>
+                        </div>
+                        <div class="rounded-lg bg-white/5 p-3 border border-white/10">
+                            <div class="text-2xl font-bold text-accent">87%</div>
+                            <div class="text-xs text-neutral-400">Time Savings</div>
+                        </div>
+                        <div class="rounded-lg bg-white/5 p-3 border border-white/10">
+                            <div class="text-2xl font-bold text-accent">15min → 2min</div>
+                            <div class="text-xs text-neutral-400">Per Document</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="text-xs font-semibold text-accent">Details</div>
+                        <ul class="text-xs text-neutral-300 space-y-1 pl-3">
+                            <li>▹ Integrated directly into Hopstack WMS, eliminating manual data entry for receiving operations</li>
+                            <li>▹ Reduced receiving time from 15 minutes/document to 2 minutes/document (87% time savings)</li>
+                            <li>▹ Achieved 85% accuracy rate with human-in-the-loop review workflow</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4 text-xs text-neutral-400">
+                        <strong>Tech:</strong> Anthropic Claude API, Python, WMS Integration
+                    </div>
+                </div>
+
+                <!-- Auto-Cropping Tool -->
+                <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-semibold text-white">Auto-Cropping Tool for E-commerce Returns</h3>
+                        <span class="text-xs font-mono text-accent">Hopstack</span>
+                    </div>
+                    <p class="text-sm text-neutral-300 mb-4">Built AI-powered label extraction tool solving operational pain point for e-commerce return processing. Extracted 4x6 shipping labels from full-size A4 return labels using computer vision algorithms.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div class="rounded-lg bg-white/5 p-3 border border-white/10">
+                            <div class="text-2xl font-bold text-accent">95%</div>
+                            <div class="text-xs text-neutral-400">Accuracy Rate</div>
+                        </div>
+                        <div class="rounded-lg bg-white/5 p-3 border border-white/10">
+                            <div class="text-2xl font-bold text-accent">3-5min → 30sec</div>
+                            <div class="text-xs text-neutral-400">Time Reduction</div>
+                        </div>
+                        <div class="rounded-lg bg-white/5 p-3 border border-white/10">
+                            <div class="text-2xl font-bold text-accent">Various Formats</div>
+                            <div class="text-xs text-neutral-400">Label Types Handled</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="text-xs font-semibold text-accent">Details</div>
+                        <ul class="text-xs text-neutral-300 space-y-1 pl-3">
+                            <li>▹ Achieved 95% accuracy rate across various label formats and print qualities</li>
+                            <li>▹ Reduced returns processing time from 3-5 minutes per return to <30 seconds</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4 text-xs text-neutral-400">
+                        <strong>Tech:</strong> Python, TensorFlow, Claude API
+                    </div>
+                </div>
+
+                <!-- AI Order Optimization -->
+                <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-semibold text-white">AI-Driven Order Optimization Algorithms</h3>
+                        <span class="text-xs font-mono text-accent">Hopstack</span>
+                    </div>
+                    <p class="text-sm text-neutral-300 mb-4">Implemented order batching algorithm using clustering for planning and grouping logic.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div class="rounded-lg bg-white/5 p-3 border border-white/10">
+                            <div class="text-2xl font-bold text-accent">80%</div>
+                            <div class="text-xs text-neutral-400">Picking Time Reduction</div>
+                        </div>
+                        <div class="rounded-lg bg-white/5 p-3 border border-white/10">
+                            <div class="text-2xl font-bold text-accent">40%</div>
+                            <div class="text-xs text-neutral-400">Packing Efficiency</div>
+                        </div>
+                        <div class="rounded-lg bg-white/5 p-3 border border-white/10">
+                            <div class="text-2xl font-bold text-accent">100+</div>
+                            <div class="text-xs text-neutral-400">Orders/Day Volume</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="text-xs font-semibold text-accent">Details</div>
+                        <ul class="text-xs text-neutral-300 space-y-1 pl-3">
+                            <li>▹ Reduced warehouse picking time 80% for customers with 100+ order/day volume</li>
+                            <li>▹ Enabled bulk label generation for 100+ identical orders</li>
+                            <li>▹ Improved packing efficiency 40% through intelligent order grouping by product type and destination</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4 text-xs text-neutral-400">
+                        <strong>Tech:</strong> Clustering algorithms, Python
+                    </div>
+                </div>
+
+                <!-- Shipment Visibility -->
+                <div class="rounded-lg border border-accent/30 bg-gradient-to-br from-white/10 to-white/5 p-6 shadow-glow">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-semibold text-white">Shipment Visibility Solution</h3>
+                        <div class="text-right">
+                            <span class="text-xs font-mono text-accent block">External Customer</span>
+                            <span class="text-xs font-semibold text-accent-soft">Patent Pending</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-neutral-300 mb-4">Served as forward deployed engineer for external logistics customer requiring real-time pallet tracking. Led end-to-end deployment: hardware installation, camera calibration, barcode detection tuning, cloud integration.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div class="rounded-lg bg-white/5 p-3 border border-white/10">
+                            <div class="text-2xl font-bold text-accent">99.2%</div>
+                            <div class="text-xs text-neutral-400">Barcode Read Accuracy</div>
+                        </div>
+                        <div class="rounded-lg bg-white/5 p-3 border border-white/10">
+                            <div class="text-2xl font-bold text-accent">50+</div>
+                            <div class="text-xs text-neutral-400">Trucks Daily</div>
+                        </div>
+                        <div class="rounded-lg bg-white/5 p-3 border border-white/10">
+                            <div class="text-2xl font-bold text-accent">Real-time</div>
+                            <div class="text-xs text-neutral-400">vs. Month-end Reporting</div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 mb-4">
+                        <div class="text-xs font-semibold text-accent">System Architecture</div>
+                        <ul class="text-xs text-neutral-300 space-y-1 pl-3">
+                            <li>▹ Designed system architecture combining edge computing, computer vision, and cloud-based tracking dashboard</li>
+                            <li>▹ System processing 50+ trucks daily with 99.2% barcode read accuracy</li>
+                            <li>▹ Increased supply chain observability enabling real-time detection vs. previous end-of-month reporting</li>
+                            <li>▹ Published patent application for novel shipment visibility technology</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="/Projects/ShipmentObservability/shipment_visibility.html" class="inline-flex items-center gap-1 text-xs font-medium text-accent hover:text-accent-soft">View detailed case study →</a>
+                    </div>
+
+                    <div class="mt-4 text-xs text-neutral-400">
+                        <strong>Tech:</strong> Edge Computing, Computer Vision, Cloud Integration
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Problem-Solving -->
+        <div id="technical-problems" class="mb-12 scroll-mt-20">
+            <div class="text-xs font-mono uppercase tracking-widest text-accent mb-4">Technical Problem-Solving Examples</div>
+            <p class="text-sm text-neutral-300 mb-6 max-w-3xl">Real production issues encountered and resolved during customer deployments.</p>
+            
+            <div class="space-y-6">
+                <!-- Integration Crisis -->
+                <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+                    <h3 class="text-lg font-semibold text-white mb-3">Integration Crisis Recovery</h3>
+                    <p class="text-sm text-neutral-300 mb-3">Customer's ERP crashed during go-live. Implemented emergency backup sync mechanism using CSV exports + API uploads.</p>
+                    
+                    <div class="space-y-2">
+                        <div class="text-xs font-semibold text-accent">Context</div>
+                        <p class="text-xs text-neutral-300 pl-3">Real-time API sync with customer's ERP system failed during go-live weekend. Built alternative data ingestion path to keep operations running.</p>
+                    </div>
+                </div>
+
+                <!-- Performance Optimization -->
+                <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+                    <h3 class="text-lg font-semibold text-white mb-3">Performance Optimization</h3>
+                    <p class="text-sm text-neutral-300 mb-3">Customer experiencing 30-second page load times with 500K SKU catalog. Implemented database indexing, query optimization, and caching layer, reducing load time to <2 seconds.</p>
+                    
+                    <div class="space-y-2">
+                        <div class="text-xs font-semibold text-accent">Approach</div>
+                        <ul class="text-xs text-neutral-300 space-y-1 pl-3">
+                            <li>▹ Database indexing on frequently queried columns</li>
+                            <li>▹ Query optimization to eliminate N+1 patterns</li>
+                            <li>▹ Caching layer implementation</li>
+                            <li>▹ Result: 30 seconds → <2 seconds page load time</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Data Migration -->
+                <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+                    <h3 class="text-lg font-semibold text-white mb-3">Data Migration Challenge</h3>
+                    <p class="text-sm text-neutral-300 mb-3">Legacy system had 15 years of inconsistent data formats. Built Python scripts to clean, normalize, and validate 2M+ records, achieving 98.8% data accuracy post-migration.</p>
+                    
+                    <div class="space-y-2">
+                        <div class="text-xs font-semibold text-accent">Scope</div>
+                        <ul class="text-xs text-neutral-300 space-y-1 pl-3">
+                            <li>▹ 2M+ records with inconsistent formats across 15 years</li>
+                            <li>▹ Built ETL pipeline for cleaning and normalization</li>
+                            <li>▹ Achieved 98.8% data accuracy post-migration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Warehouse Migration -->
+                <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+                    <h3 class="text-lg font-semibold text-white mb-3">Warehouse Migration</h3>
+                    <p class="text-sm text-neutral-300 mb-3">Customer moved between two warehouses over the weekend. Helped them move, clean-up, upload the new warehouse data, keeping operational aspects running without any interruptions.</p>
+                    
+                    <div class="space-y-2">
+                        <div class="text-xs font-semibold text-accent">Details</div>
+                        <p class="text-xs text-neutral-300 pl-3">On-site support during weekend warehouse relocation to ensure system data stayed synchronized with physical inventory movement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer ROI & Transformation -->
+        <div id="customer-roi" class="mb-12 scroll-mt-20">
+            <div class="text-xs font-mono uppercase tracking-widest text-accent mb-4">Customer ROI Examples</div>
+            <p class="text-sm text-neutral-300 mb-6 max-w-3xl">Measurable operational improvements delivered to strategic customers.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+                    <div class="text-lg font-bold text-accent mb-2">80% Time Reduction</div>
+                    <p class="text-sm text-neutral-300">Reduced order processing time from 10 minutes to 2 minutes per order for 3PL customer processing 10K+ orders/day</p>
+                </div>
+                
+                <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+                    <div class="text-lg font-bold text-accent mb-2">$400K Annual Savings</div>
+                    <p class="text-sm text-neutral-300">Enabled through AI-powered optimization algorithms (box and carrier selection, order batching, routing optimization)</p>
+                </div>
+                
+                <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+                    <div class="text-lg font-bold text-accent mb-2">Compliance Implementation</div>
+                    <p class="text-sm text-neutral-300">Supported and guided Alcohol & CCPA compliance implementation that unlocked market expansion for fulfillment brand</p>
+                </div>
+                
+                <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+                    <div class="text-lg font-bold text-accent mb-2">99.5% Inventory Accuracy</div>
+                    <p class="text-sm text-neutral-300">Improved from 85% through cycle counting automation and real-time tracking</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools Built -->
+        <div id="tools" class="mb-12 scroll-mt-20">
+            <div class="text-xs font-mono uppercase tracking-widest text-accent mb-4">Production Tools & Open Source</div>
+            <p class="text-sm text-neutral-300 mb-6 max-w-3xl">Tools built to solve operational problems, used internally and by external teams.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- utils.shan0o.com -->
+                <div class="rounded-lg border border-accent/30 bg-gradient-to-br from-white/10 to-white/5 p-6 shadow-glow">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-semibold text-white">Warehouse Utility Suite</h3>
+                        <span class="text-xs font-mono text-accent">utils.shan0o.com</span>
+                    </div>
+                    <p class="text-sm text-neutral-300 mb-4">Production-deployed web application suite solving warehouse operations pain points. Built as stateless client-side application using Replit platform.</p>
+                    
+                    <div class="space-y-2 mb-4">
+                        <div class="text-xs font-semibold text-accent">Features</div>
+                        <ul class="text-xs text-neutral-300 space-y-1 pl-3">
+                            <li>▹ PDF label cropping tool: extract shipping labels from full-size documents</li>
+                            <li>▹ ZPL label viewer/editor: preview and modify thermal printer label formats</li>
+                            <li>▹ Excel/CSV data transformation tools: format conversion, data cleaning, column mapping</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-2 mb-4">
+                        <div class="text-xs font-semibold text-accent">Usage</div>
+                        <ul class="text-xs text-neutral-300 space-y-1 pl-3">
+                            <li>▹ Used internally at Hopstack and by external warehouse operations teams</li>
+                            <li>▹ Processing 100+ document transformations monthly</li>
+                            <li>▹ Open source project accepting community contributions</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="https://utils.shan0o.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm font-medium text-accent hover:text-accent-soft">Visit utils.shan0o.com →</a>
+                    </div>
+
+                    <div class="mt-4 text-xs text-neutral-400">
+                        <strong>Tech:</strong> React, JavaScript, HTML5 Canvas API, PDF.js, Replit
+                    </div>
+                </div>
+
+                <!-- itemom.com -->
+                <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-semibold text-white">Personal Inventory App</h3>
+                        <span class="text-xs font-mono text-accent">itemom.com</span>
+                    </div>
+                    <p class="text-sm text-neutral-300 mb-4">Full-stack home organization inventory application for fast item capture, search, and organization. Sandbox for exploring agentic AI development, authentication, storage patterns, and real-time data architectures.</p>
+                    
+                    <div class="space-y-2 mb-4">
+                        <div class="text-xs font-semibold text-accent">Features</div>
+                        <ul class="text-xs text-neutral-300 space-y-1 pl-3">
+                            <li>▹ Fast item capture with mobile camera integration and barcode scanning</li>
+                            <li>▹ Real-time search across item names, descriptions, tags, and custom fields</li>
+                            <li>▹ Tag-based organization with hierarchical categorization</li>
+                            <li>▹ Image upload and storage with thumbnail generation</li>
+                            <li>▹ AI-powered features: automatic categorization, smart search, OCR for product labels</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-y-2 mb-4">
+                        <div class="text-xs font-semibold text-accent">Learning Focus</div>
+                        <ul class="text-xs text-neutral-300 space-y-1 pl-3">
+                            <li>▹ Exploring modern tech stack and AI development tools</li>
+                            <li>▹ Experimenting with real-time data sync using Supabase subscriptions</li>
+                            <li>▹ Testing UX patterns for AI-first workflows</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4 text-xs text-neutral-400">
+                        <strong>Tech:</strong> Next.js, React, Tailwind CSS, Supabase (PostgreSQL, Auth, Storage), Vercel
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="rounded-lg border border-accent/30 bg-gradient-to-br from-white/10 to-white/5 p-8 text-center shadow-glow">
+            <h2 class="text-2xl font-semibold text-white mb-3">Looking for Product Manager or Forward Deployed Engineer Roles</h2>
+            <p class="text-sm text-neutral-300 mb-6 max-w-2xl mx-auto">Technical depth combined with customer-facing implementation experience. Available in 2 weeks.</p>
+            <div class="flex flex-wrap gap-3 justify-center">
+                <a href="mailto:shantanoopatel@gmail.com" class="focus-ring inline-flex items-center justify-center rounded-lg border border-accent/30 bg-accent/10 px-6 py-3 text-sm font-medium text-accent hover:bg-accent/20">Email Me</a>
+                <a href="/resume.html" target="_blank" rel="noopener" class="focus-ring inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-sm text-neutral-200 hover:bg-white/10">View Resume</a>
+                <a href="/index.html" class="focus-ring inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-6 py-3 text-sm text-neutral-200 hover:bg-white/10">Back to Portfolio</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-neutral-950/70 mt-12">
+        <div class="mx-auto max-w-7xl px-6 py-6 text-sm text-neutral-400">
+            <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+                <div>
+                    <div class="font-semibold text-neutral-200">Get in touch</div>
+                    <div class="mt-1 text-xs">📧 <a href="mailto:shantanoopatel@gmail.com" class="hover:text-accent">shantanoopatel@gmail.com</a></div>
+                </div>
+                <div class="flex gap-3">
+                    <a href="https://www.linkedin.com/in/patelshantanoo" target="_blank" rel="noopener" class="focus-ring inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/10">LinkedIn</a>
+                    <a href="https://github.com/xhan0o" target="_blank" rel="noopener" class="focus-ring inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/10">GitHub</a>
+                </div>
+            </div>
+            <div class="mt-4 text-xs">© <span id="year"></span> Shantanu Patel</div>
+        </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
